@@ -1,0 +1,40 @@
+{
+  "name": "randmwedding",
+  "description": "Our wedding website",
+  "version": "1.0.0",
+  "author": "Matt Morgan <matt@mlmorg.com>",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mlmorg/randmwedding.git"
+  },
+  "main": "dist/server/main.js",
+  "scripts": {
+    "start": "node dist/server/main.js",
+    "build": "node scripts/build.js",
+    "watch": "node scripts/watch.js"
+  },
+  "engines": {
+    "node": "6.x",
+    "npm": "3.x"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "babelify": "^7.3.0",
+    "browserify": "^13.0.1",
+    "envify": "^3.4.0",
+    "insert-module-globals": "^7.0.1",
+    "nodemon": "^1.9.2",
+    "watchify": "^3.7.0",
+    "write": "^0.3.1"
+  },
+  "dependencies": {
+    "express": "^4.13.4",
+    "global": "^4.3.0",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "react-fp": "^0.2.0",
+    "source-map-support": "^0.4.0"
+  }
+}
