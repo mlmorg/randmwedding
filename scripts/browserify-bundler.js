@@ -8,27 +8,30 @@ var write = require('write');
 
 module.exports = bundler;
 
-var globalBrowserifyOptions = {
-  default: {
-    debug: true,
-    transform: [babelify, envify]
-  },
-  browser: {
-    entries: ['src/browser/main.js']
-  },
-  node: {
-    entries: ['src/server/main.js'],
-    browserField: false,
-    builtins: false,
-    commondir: false,
-    insertGlobalVars: getGlobalVars()
-  },
-  watch: {
-    cache: {},
-    packageCache: {},
-    plugin: [watchify]
-  }
-};
+function getGlobalOptions() {
+  // Must be in its own scope because of object caching in Browserify
+  return {
+    default: {
+      debug: true,
+      transform: [babelify, envify]
+    },
+    browser: {
+      entries: ['src/browser/main.js']
+    },
+    node: {
+      entries: ['src/server/main.js'],
+      browserField: false,
+      builtins: false,
+      commondir: false,
+      insertGlobalVars: getGlobalVars()
+    },
+    watch: {
+      cache: {},
+      packageCache: {},
+      plugin: [watchify]
+    }
+  };
+}
 
 function bundler(options, cb) {
   var startTime;
@@ -60,6 +63,7 @@ function bundler(options, cb) {
 }
 
 function getBrowserifyOptions(options) {
+  var globalBrowserifyOptions = getGlobalOptions();
   return extend(
     globalBrowserifyOptions.default,
     options.browser ? globalBrowserifyOptions.browser : {},
