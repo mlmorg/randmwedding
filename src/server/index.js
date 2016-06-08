@@ -1,8 +1,10 @@
+import st from 'st';
+import path from 'path';
+import {createServer} from 'http';
 import React from 'react';
 import {renderToString} from 'react-dom/server';
 import { RouterProvider } from 'react-router5';
 import { Provider } from 'react-redux';
-import initServer from '../../lib/frmwrk/server';
 import jsonGlobals from 'safe-json-globals';
 import Helmet from 'react-helmet';
 
@@ -11,19 +13,32 @@ import createStore from '../shared/store';
 import Root from '../shared/components/root';
 
 export default function startServer(options = {}, cb) {
-  const server = initServer(options);
+  const mount = st({
+    path: path.join(process.cwd(), 'dist', 'browser'),
+    url: '/assets'
+  });
+  const server = createServer((req, res) => {
+    if (req.url.split('/')[1] === 'assets' && mount(req, res)) {
+      return;
+    }
 
-  server.get('*', (req, res) => {
     const router = createRouter();
     const store = createStore(router);
 
     router.start(req.url, (err, state)  => {
+      if (err && err.code === 'ROUTE_NOT_FOUND') {
+        res.writeHead(404, {'Content-Type': 'text/html'});
+      } else {
+        res.writeHead(200, {'Content-Type': 'text/html'});
+      }
+
       const context = (
-        <Root store={store} router={router} state={state}/>
+        <Root store={store} router={router}/>
       );
       const app = renderToString(context);
       const head = Helmet.rewind();
-      const jsonGlobalState = jsonGlobals({state});
+      const initialState = store.getState();
+      const jsonGlobalState = jsonGlobals({initialState});
 
       const html = '<!DOCTYPE html><html><head>' +
         head.title.toString() +
@@ -33,16 +48,13 @@ export default function startServer(options = {}, cb) {
         `<script>${jsonGlobalState}</script>` +
         `</head><body><div id="app">${app}</div></body></html>`
 
-      res.writeHead(200, {
-        'Content-Type': 'text/html'
-      });
       res.end(html);
       router.stop();
     });
   });
 
   server.listen(3000, function () {
-    console.log('listening');
+    console.log('listening at http://localhost:3000');
   });
   return server;
 }
