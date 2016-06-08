@@ -3,8 +3,6 @@ import path from 'path';
 import {createServer} from 'http';
 import React from 'react';
 import {renderToString} from 'react-dom/server';
-import { RouterProvider } from 'react-router5';
-import { Provider } from 'react-redux';
 import jsonGlobals from 'safe-json-globals';
 import Helmet from 'react-helmet';
 
