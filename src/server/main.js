@@ -1,5 +1,6 @@
 import {install} from 'source-map-support';
-import startServer from './';
+import initServer from '../lib/frmwrk/server';
+import App from '../shared/containers/app';
 
 install();
-startServer();
+initServer(App).start();
