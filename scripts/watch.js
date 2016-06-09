@@ -8,7 +8,7 @@ process.on('SIGINT', function exit() {
 
 watch(function (err) {
   if (err) {
-    console.log(err);
+    console.log(err.stack);
   }
 });
 
