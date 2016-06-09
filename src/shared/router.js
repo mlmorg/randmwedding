@@ -1,4 +1,4 @@
-import {Router5} from 'router5';
+import Router5 from 'router5';
 import historyPlugin from 'router5-history';
 
 const routes = [
@@ -11,4 +11,4 @@ export default function createAppRouter() {
     .setOption('useHash', false)
     .setOption('trailingSlash', true)
     .usePlugin(historyPlugin());
-}
+};

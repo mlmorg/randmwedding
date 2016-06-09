@@ -56,4 +56,4 @@ export default function startServer(options = {}, cb) {
     console.log('listening at http://localhost:3000');
   });
   return server;
-}
+};

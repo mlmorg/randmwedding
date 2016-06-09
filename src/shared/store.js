@@ -9,4 +9,4 @@ export default function createAppStore(router, initialState) {
   )(createStore);
 
   return storeFactory(reducers, initialState);
-}
+};
