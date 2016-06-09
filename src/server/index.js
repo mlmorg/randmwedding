@@ -24,6 +24,7 @@ export default function startServer(options = {}, cb) {
     const store = createStore(router);
 
     router.start(req.url, (err, state)  => {
+      console.log('handling request for ' + req.url);
       if (err && err.code === 'ROUTE_NOT_FOUND') {
         res.writeHead(404, {'Content-Type': 'text/html'});
       } else {
