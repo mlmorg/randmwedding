@@ -9,13 +9,12 @@ const Link = (props, context) => {
 
   const href = router.buildUrl(name, params);
   const className = router.isActive(name, params) ? 'active' : '';
-
-  return <a {...{href, onClick, className}}>{children}</a>;
-
-  function onClick(evt) {
+  const onClick = (evt) => {
     evt.preventDefault();
     navigateTo(name, params, options);
-  }
+  };
+
+  return <a {...{href, onClick, className}}>{children}</a>;
 };
 
 Link.propTypes = {
