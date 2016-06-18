@@ -4,9 +4,9 @@ import {router5Middleware} from 'redux-router5';
 import reducers from './reducers';
 
 export default function createAppStore(router, initialState) {
-  const storeFactory = compose(
+  const enhancers = compose(
     applyMiddleware(router5Middleware(router))
-  )(createStore);
+  );
 
-  return storeFactory(reducers, initialState);
+  return createStore(reducers, initialState, enhancers);
 };
