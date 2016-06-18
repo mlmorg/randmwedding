@@ -13,7 +13,7 @@ import Root from './root';
 class Server {
   constructor(Component) {
     const staticPath = path.join(process.cwd(), 'dist', 'browser');
-    
+
     this.Component = Component;
     this.mount = st({url: '/assets', path: staticPath});
     this.server = createServer(this.handler.bind(this));
@@ -33,6 +33,7 @@ class Server {
     return '<!DOCTYPE html><html><head>' +
       head.title.toString() +
       head.meta.toString() +
+      head.style.toString() +
       head.link.toString() +
       head.script.toString() +
       `<script>${jsonGlobalState}</script>` +

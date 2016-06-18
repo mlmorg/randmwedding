@@ -32,6 +32,9 @@
   "dependencies": {
     "express": "^4.13.4",
     "global": "^4.3.0",
+    "inline-style": "^2.0.0",
+    "normalize.css": "^4.1.1",
+    "radium-normalize": "^2.0.3",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "react-helmet": "^3.1.0",
