@@ -5,11 +5,9 @@ import {routeNodeSelector} from 'redux-router5';
 import Home from '../components/home';
 import Layout from '../components/layout';
 import NotFound from '../components/not-found';
-import Other from '../components/other';
 
 const components = {
   'home': Home,
-  'other': Other,
   'not-found': NotFound
 };
 

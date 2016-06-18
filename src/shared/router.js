@@ -3,7 +3,6 @@ import historyPlugin from 'router5-history';
 
 const routes = [
   {name: 'home', path: '/'},
-  {name: 'other', path: '/other'}
 ];
 
 export default function createAppRouter() {
