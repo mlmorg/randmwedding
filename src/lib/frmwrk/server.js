@@ -12,10 +12,9 @@ import Root from './root';
 
 class Server {
   constructor(Component) {
-    const staticPath = path.join(process.cwd(), 'dist', 'browser');
-
+    this.appMount = st({url: '/assets/app', path: 'dist/browser'});
+    this.staticMount = st({url: '/assets/static', path: 'static'});
     this.Component = Component;
-    this.mount = st({url: '/assets', path: staticPath});
     this.server = createServer(this.handler.bind(this));
   }
 
@@ -41,9 +40,14 @@ class Server {
   }
 
   handler(req, res) {
-    const {mount, Component} = this;
+    const {appMount, staticMount, Component} = this;
 
-    if (req.url.split('/')[1] === 'assets' && mount(req, res)) {
+    const urlStart = req.url.split('/', 3).join('/');
+    if (
+      (urlStart === '/assets/app' && appMount(req, res)) ||
+      (urlStart === '/assets/static' && staticMount(req, res))
+    ) {
+      console.log(`Rendered asset: ${req.url}`);
       return;
     }
 
