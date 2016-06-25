@@ -30,6 +30,7 @@
     "write": "^0.3.1"
   },
   "dependencies": {
+    "debounce": "^1.0.0",
     "express": "^4.13.4",
     "global": "^4.3.0",
     "inline-style": "^2.0.0",

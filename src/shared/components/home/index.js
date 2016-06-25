@@ -1,8 +1,9 @@
 import React from 'react';
 
 import Hero from './hero';
-import YourInfo from './your-info';
 import Nav from '../nav';
+import OurStory from './our-story';
+import YourInfo from './your-info';
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <Hero/>
       <Nav/>
       <YourInfo/>
+      <OurStory/>
     </div>
   );
 };

@@ -38,7 +38,7 @@ const styles = {
     border: '1px solid #ccc',
     backgroundColor: '#F3F4EE',
     padding: '0 50px 40px 50px',
-    marginTop: '60px'
+    marginTop: '90px'
   },
   image: {
     width: '175px',
