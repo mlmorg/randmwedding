@@ -1,38 +1,40 @@
+/* @jsx createElement */
 import React from 'react';
+import createElement from 'react-stylematic';
 
-import {H1, H2, H5} from '../typography';
 import Logo from '../logo';
-import {Relative} from '../../../lib/react-layout';
+import {Absolute, IntrinsicHeight} from '../../../lib/react-layout';
 
 export default function Hero() {
   return (
-    <div style={styles.wrapper}>
+    <IntrinsicHeight percentage="52.7%">
       <div style={styles.heading}>
         <Logo secondary width="90"/>
         <div style={styles.title}>
-          <H1>Rac<span style={styles.upper}>h</span>el & Matt</H1>
+          <h1>Rac<span style={styles.upper}>h</span>el & Matt</h1>
           <div style={styles.titleLineLeft}/>
           <div style={styles.titleLineCenter}/>
           <div style={styles.titleLineRight}/>
         </div>
         <div style={styles.subtitle}>
-          <H2>
+          <h2>
             Saturday, May 27, 2017<br />
             Under The Walnut tree
-          </H2>
+          </h2>
         </div>
-        <H5>Calistoga, CA</H5>
+        <h5>Calistoga, CA</h5>
       </div>
       <div style={styles.overlay}/>
       <video width="100%" preload="auto" loop autoPlay muted>
         <source src="/assets/static/tree.mp4" type="video/mp4"></source>
       </video>
-    </div>
+    </IntrinsicHeight>
   );
 };
 
 const shared = {
-  titleWidth: {
+  titles: {
+    position: 'relative',
     width: '343px'
   },
   titleLine: {
@@ -43,9 +45,6 @@ const shared = {
 };
 
 const styles = {
-  wrapper: {
-    position: 'relative'
-  },
   heading: {
     position: 'absolute',
     width: '100%',
@@ -55,8 +54,7 @@ const styles = {
     zIndex: '20'
   },
   title: {
-    ...shared.titleWidth,
-    position: 'relative',
+    ...shared.titles,
     margin: '0 auto 14px auto'
   },
   titleLineLeft: {
@@ -75,8 +73,7 @@ const styles = {
     right: '0px'
   },
   subtitle: {
-    ...shared.titleWidth,
-    position: 'relative',
+    ...shared.titles,
     margin: '0px auto 30px auto',
     borderBottom: '1px solid #999'
   },
