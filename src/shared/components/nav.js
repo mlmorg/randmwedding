@@ -1,19 +1,19 @@
 /* @jsx createElement */
 import createElement from 'react-stylematic';
 
-export default function Nav({fixed, height, active}) {
+export default function Nav({activeRoute, affix, height}) {
   return (
     <div style={{height: height + 'px'}}>
       <div style={{
         ...styles.wrapper,
-        ...(fixed && styles.wrapperFixed)
+        ...(affix && styles.wrapperFixed)
       }}>
         <ul style={styles.list}>
-          <Link href="#your-info" {...{active: active === 'your-info'}}>Your Info</Link>
-          <Link href="#our-story" {...{active: active === 'our-story'}}>Our Story</Link>
-          <Link href="#schedule" {...{active: active === 'schedule'}}>Schedule</Link>
-          <Link href="#travel-info" {...{active: active === 'travel-info'}}>Travel Info</Link>
-          <Link href="#faq-and-details" {...{active: active === 'details'}}>FAQ &amp; Details</Link>
+          <Link href="#your-info" {...{active: activeRoute === 'your-info'}}>Your Info</Link>
+          <Link href="#our-story" {...{active: activeRoute === 'our-story'}}>Our Story</Link>
+          <Link href="#schedule" {...{active: activeRoute === 'schedule'}}>Schedule</Link>
+          <Link href="#travel-info" {...{active: activeRoute === 'travel-info'}}>Travel Info</Link>
+          <Link href="#faq-and-details" {...{active: activeRoute === 'details'}}>FAQ &amp; Details</Link>
         </ul>
       </div>
     </div>

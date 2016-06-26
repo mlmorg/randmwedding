@@ -6,7 +6,7 @@ import {Padded, Layout, LayoutItem, TextAlign} from '../../../lib/react-layout';
 export default function Schedule() {
   return (
     <Padded style={styles.wrapper}>
-      <div style={styles.content}>
+      <div id="schedule" style={styles.content}>
         <TextAlign center>
           <img src="/assets/static/fig.png" style={styles.image}/>
           <h3>Schedule</h3>

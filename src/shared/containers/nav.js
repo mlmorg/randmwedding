@@ -5,39 +5,85 @@ import {findDOMNode} from 'react-dom';
 import debounce from 'debounce';
 import React from 'react';
 
-import {changeNavStyle} from '../actions';
+import {changeNavState} from '../actions';
 
 import Nav from '../components/nav';
 
 class NavContainer extends React.Component {
   constructor() {
     super();
-    this.debounceFn = debounce(this.onViewChange.bind(this), 10);
+    this.routes = [
+      'your-info',
+      'our-story',
+      'schedule',
+      'travel-info',
+      'details'
+    ];
+    this.onScrollFn = debounce(this.onScrollChange.bind(this), 10);
+    this.onResizeFn = debounce(this.onViewChange.bind(this), 10);
   }
 
   componentDidMount() {
-    window.addEventListener('scroll', this.debounceFn);
-    window.addEventListener('resize', this.debounceFn);
+    window.addEventListener('scroll', this.onScrollFn);
+    window.addEventListener('resize', this.onResizeFn);
+
+    this.node = findDOMNode(this);
+    this.nodes = this.routes.map((id) => document.getElementById(id));
+
     this.onViewChange();
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.debounceFn);
-    window.removeEventListener('resize', this.debounceFn);
+    window.removeEventListener('scroll', this.onScrollFn);
+    window.removeEventListener('resize', this.onResizeFn);
   }
 
   onViewChange() {
-    const node = findDOMNode(this);
+    this.setRoutePositions();
+    this.changeNavState();
+  }
 
+  onScrollChange() {
+    this.changeNavState();
+  }
+
+  changeNavState() {
+    const activeRoute = this.getActiveRoute();
+    const affix = this.shouldBeFixed();
+    const height = this.node.firstElementChild.offsetHeight;
+
+    if (
+      activeRoute === this.props.activeRoute &&
+      affix === this.props.affix &&
+      height === this.props.height
+    ) {
+      return;
+    }
+
+    this.props.changeNavState(activeRoute, affix, height);
+  }
+
+  setRoutePositions() {
+    this.positions = this.nodes.map((node) => {
+      return [node.offsetTop, node.offsetTop + node.offsetHeight]
+    });
+  }
+
+  getActiveRoute() {
+    const scrollTop = window.pageYOffset + this.node.firstElementChild.offsetHeight;
+    let idx;
+    this.positions.some((position, i) => {
+      if (scrollTop >= position[0] && scrollTop < position[1]) {
+        idx = i;
+      }
+    });
+    return this.routes[idx];
+  }
+
+  shouldBeFixed() {
     const scrollTop = window.pageYOffset;
-    const position =
-      (node.getBoundingClientRect().top + window.pageYOffset) -
-      document.documentElement.clientTop;
-
-    const isFixed = scrollTop >= position;
-    const height = node.firstElementChild.offsetHeight;
-
-    this.props.changeNavStyle(isFixed, height);
+    const position = this.node.offsetTop;
+    return scrollTop >= position;
   }
 
   render() {
@@ -50,7 +96,9 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({changeNavStyle}, dispatch);
+  return bindActionCreators({
+    changeNavState
+  }, dispatch);
 }
 
 export default connect(

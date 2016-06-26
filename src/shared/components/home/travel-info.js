@@ -6,7 +6,7 @@ import {Layout, LayoutItem, TextAlign, Padded} from '../../../lib/react-layout';
 export default function TravelInfo() {
   return (
     <Padded style={styles.wrapper}>
-      <div style={styles.content}>
+      <div id="travel-info" style={styles.content}>
         <Layout center>
           <LayoutItem max="600px">
             <Content/>

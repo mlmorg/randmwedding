@@ -6,7 +6,7 @@ import {Layout, LayoutItem, TextAlign, Padded} from '../../../lib/react-layout';
 export default function OurStory() {
   return (
     <Padded style={styles.wrapper}>
-      <div style={styles.content}>
+      <div id="our-story" style={styles.content}>
         <Layout center>
           <LayoutItem max="600px">
             <img src="/assets/static/rachel-matt.jpg" style={styles.image}/>

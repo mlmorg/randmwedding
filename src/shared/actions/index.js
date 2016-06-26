@@ -1,14 +1,8 @@
-export function changeRouteActive(route) {
+export function changeNavState(activeRoute, affix, height) {
   return {
-    type: 'CHANGE_ROUTE_ACTIVE',
-    route
-  };
-}
-
-export function changeNavStyle(fixed, height) {
-  return {
-    type: 'CHANGE_NAV_STYLE',
-    fixed,
+    type: 'CHANGE_NAV_STATE',
+    activeRoute,
+    affix,
     height
   };
 }

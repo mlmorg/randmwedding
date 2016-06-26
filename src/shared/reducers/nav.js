@@ -1,23 +1,15 @@
-export default function nav(state = {
-  height: 'auto',
-  fixed: false
-}, action) {
-  let newState = state;
+const initialState = {
+  activeRoute: null,
+  affix: false,
+  height: 'auto'
+};
 
-  if (action.type === 'CHANGE_ROUTE_ACTIVE') {
-    newState = {
-      ...state,
-      active: action.route
-    };
+export default function nav(state = initialState, action) {
+  const {type, ...newState} = action;
+
+  if (action.type === 'CHANGE_NAV_STATE') {
+    return newState;
   }
 
-  if (action.type === 'CHANGE_NAV_STYLE') {
-    newState = {
-      ...state,
-      fixed: action.fixed,
-      height: action.height
-    };
-  }
-
-  return newState;
+  return state;
 }

@@ -6,7 +6,7 @@ import {Padded, Layout, LayoutItem, TextAlign} from '../../../lib/react-layout';
 export default function Details() {
   return (
     <Padded style={styles.wrapper}>
-      <div style={styles.content}>
+      <div id="details" style={styles.content}>
         <TextAlign center>
           <img src="/assets/static/orange.png" style={styles.image}/>
           <h3>FAQ & Details</h3>

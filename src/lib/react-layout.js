@@ -93,7 +93,7 @@ export function TextAlign({left, center, right, style, children}) {
   );
 }
 
-export function Padded({sides, ends, style, children}) {
+export function Padded({sides, ends, style, children, ...props}) {
   const padSides = sides || !ends;
   const padEnds = ends || !sides;
   const sidesPx = '30px';
@@ -105,5 +105,5 @@ export function Padded({sides, ends, style, children}) {
     paddingBottom: padEnds && endsPx,
     paddingLeft: padSides && sidesPx,
     paddingRight: padSides && sidesPx
-  }}>{children}</div>
+  }} {...props}>{children}</div>
 }

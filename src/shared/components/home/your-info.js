@@ -6,7 +6,7 @@ import {Layout, LayoutItem, TextAlign, Padded} from '../../../lib/react-layout';
 
 export default function YourInfo() {
   return (
-    <Padded>
+    <Padded id="your-info">
       <Layout center>
         <LayoutItem max="600px">
           <div style={styles.box}>
