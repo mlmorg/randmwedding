@@ -20,8 +20,9 @@ class Server {
   }
 
   start() {
-    this.server.listen(3000, function () {
-      console.log('listening at http://localhost:3000');
+    const port = process.env.PORT || 3000;
+    this.server.listen(port, function () {
+      console.log(`listening at http://localhost:${port}`);
     });
   }
 
