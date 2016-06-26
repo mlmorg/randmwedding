@@ -3,26 +3,27 @@ import React from 'react';
 import createElement from 'react-stylematic';
 
 import Logo from '../logo';
+import {H1, H2, H5} from '../typography';
 import {Absolute, IntrinsicHeight} from '../../../lib/react-layout';
 
 export default function Hero() {
   return (
     <IntrinsicHeight percentage="52.7%">
       <div style={styles.heading}>
-        <Logo secondary width="90"/>
+        <Logo secondary style={styles.logo}/>
         <div style={styles.title}>
-          <h1>Rac<span style={styles.upper}>h</span>el & Matt</h1>
+          <H1>Rac<span style={styles.upper}>h</span>el & Matt</H1>
           <div style={styles.titleLineLeft}/>
           <div style={styles.titleLineCenter}/>
           <div style={styles.titleLineRight}/>
         </div>
         <div style={styles.subtitle}>
-          <h2>
+          <H2>
             Saturday, May 27, 2017<br />
             Under The Walnut tree
-          </h2>
+          </H2>
         </div>
-        <h5>Calistoga, CA</h5>
+        <H5>Calistoga, CA</H5>
       </div>
       <div style={styles.overlay}/>
       <video width="100%" preload="auto" loop autoPlay muted>
@@ -40,7 +41,11 @@ const shared = {
   titleLine: {
     position: 'absolute',
     bottom: '-11px',
-    borderBottom: '1px solid #999'
+    borderBottom: '1px solid #999',
+
+    '@media(max-width: 750px)': {
+      bottom: '-6px'
+    }
   }
 };
 
@@ -51,31 +56,65 @@ const styles = {
     top: '18%',
     textAlign: 'center',
     color: 'white',
-    zIndex: '20'
+    zIndex: '20',
+
+    '@media(max-width: 750px)': {
+      top: '10%'
+    }
+  },
+  logo: {
+    width: '90px',
+
+    '@media(max-width: 750px)': {
+      width: '30px'
+    }
   },
   title: {
     ...shared.titles,
-    margin: '0 auto 14px auto'
+    margin: '0 auto 14px auto',
+
+    '@media(max-width: 750px)': {
+      width: '207px',
+      marginBottom: '10px'
+    }
   },
   titleLineLeft: {
     ...shared.titleLine,
     width: '16px',
-    left: '0px'
+    left: '0px',
+
+    '@media(max-width: 750px)': {
+      width: '8px'
+    }
   },
   titleLineCenter: {
     ...shared.titleLine,
     width: '163px',
-    left: '40px'
+    left: '40px',
+
+    '@media(max-width: 750px)': {
+      width: '98px',
+      left: '25px'
+    }
   },
   titleLineRight: {
     ...shared.titleLine,
     width: '115px',
-    right: '0px'
+    right: '0px',
+
+    '@media(max-width: 750px)': {
+      width: '70px'
+    }
   },
   subtitle: {
     ...shared.titles,
     margin: '0px auto 30px auto',
-    borderBottom: '1px solid #999'
+    borderBottom: '1px solid #999',
+
+    '@media(max-width: 750px)': {
+      width: '207px',
+      marginBottom: '15px'
+    }
   },
   upper: {
     textTransform: 'uppercase'
@@ -90,6 +129,13 @@ const styles = {
     borderRadius: '50%',
     background: 'rgba(0,0,0,0.3)',
     WebkitFilter: 'blur(10px)',
-    zIndex: '10'
+    zIndex: '10',
+
+    '@media(max-width: 750px)': {
+      width: '300px',
+      marginLeft: '-150px',
+      height: '175px',
+      top: '10%'
+    }
   }
 };

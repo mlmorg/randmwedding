@@ -6,7 +6,12 @@ import GlobalStyles from './global-styles';
 
 const Layout = ({children}) => (
   <div>
-    <Helmet title="RandM Wedding"/>
+    <Helmet
+      title="RandM Wedding"
+      meta={[
+        {name: 'viewport', content: 'idth=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'}
+      ]}
+    />
     <NormalizeCss/>
     <GlobalStyles/>
     {children}
