@@ -15,8 +15,8 @@
     "postinstall": "npm run build"
   },
   "engines": {
-    "node": "6.x",
-    "npm": "3.x"
+    "node": "4.2.x",
+    "npm": "3.3.x"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.9.0",
