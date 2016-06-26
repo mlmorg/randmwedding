@@ -106,10 +106,10 @@ export function Padded({sides, ends, style, children, ...props}) {
   const endsPx = '75px';
 
   return <div style={{
-    ...style,
     paddingTop: padEnds && endsPx,
     paddingBottom: padEnds && endsPx,
     paddingLeft: padSides && sidesPx,
-    paddingRight: padSides && sidesPx
+    paddingRight: padSides && sidesPx,
+    ...style
   }} {...props}>{children}</div>
 }

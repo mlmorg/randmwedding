@@ -7,7 +7,7 @@ import {H3} from '../typography';
 
 export default function YourInfo() {
   return (
-    <Padded id="your-info">
+    <Padded id="your-info" style={styles.wrapper}>
       <Layout center>
         <LayoutItem max="600px">
           <div style={styles.box}>
@@ -39,6 +39,9 @@ export default function YourInfo() {
 }
 
 const styles = {
+  wrapper: {
+    paddingTop: '50px'
+  },
   box: {
     border: '1px solid #ccc',
     backgroundColor: '#F3F4EE',
