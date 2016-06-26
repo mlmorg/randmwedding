@@ -67,9 +67,18 @@ export default function GlobalStyles() {
       h3: {
         ...shared.yonder,
         fontSize: '80px',
-        lineHeight: '1',
+        lineHeight: '0.8',
         textTransform: 'lowercase',
         margin: '0px 0px 30px 0px'
+      },
+      h4: {
+        ...shared.grotesque,
+        fontSize: '14px',
+        fontWeight: 'bold',
+        lineHeight: '1',
+        textTransform: 'uppercase',
+        letterSpacing: '3px',
+        margin: '15px 0px 20px 0'
       },
       h5: {
         ...shared.grotesque,
@@ -77,6 +86,12 @@ export default function GlobalStyles() {
         textTransform: 'uppercase',
         letterSpacing: '2px',
         margin: '0px 0px 14px 0px'
+      },
+      h6: {
+        ...shared.grotesque,
+        fontSize: '13px',
+        fontWeight: 'bold',
+        margin: '0px 0px 5px 0px'
       },
       p: {
         marginTop: '0px',

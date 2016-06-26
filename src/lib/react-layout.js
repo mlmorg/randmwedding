@@ -66,13 +66,14 @@ export function Layout({center, children}) {
   );
 }
 
-export function LayoutItem({size, children}) {
+export function LayoutItem({size, max, children}) {
   return (
     <div style={{
       display: 'inline-block',
       paddingLeft: '60px',
       verticalAlign: 'top',
-      width: size ? (size / 14 * 100) + '%' : '100%',
+      width: size ? (size / 12 * 100) + '%' : '100%',
+      maxWidth: max || 'auto',
       boxSizing: 'border-box',
       textAlign: 'left'
     }}>
@@ -90,4 +91,19 @@ export function TextAlign({left, center, right, style, children}) {
       {children}
     </div>
   );
+}
+
+export function Padded({sides, ends, style, children}) {
+  const padSides = sides || !ends;
+  const padEnds = ends || !sides;
+  const sidesPx = '30px';
+  const endsPx = '75px';
+
+  return <div style={{
+    ...style,
+    paddingTop: padEnds && endsPx,
+    paddingBottom: padEnds && endsPx,
+    paddingLeft: padSides && sidesPx,
+    paddingRight: padSides && sidesPx
+  }}>{children}</div>
 }
