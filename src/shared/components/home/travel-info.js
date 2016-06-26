@@ -2,6 +2,7 @@
 import createElement from 'react-stylematic';
 
 import {Layout, LayoutItem, TextAlign, Padded} from '../../../lib/react-layout';
+import {H3, H4} from '../typography';
 
 export default function TravelInfo() {
   return (
@@ -21,17 +22,17 @@ function Content() {
   return (
     <TextAlign center>
       <img src="/assets/static/tomato.png" style={styles.image}/>
-      <h3>Travel Info</h3>
+      <H3>Travel Info</H3>
 
       <div style={styles.section}>
-        <h4>Accommodations</h4>
+        <H4>Accommodations</H4>
         <p>
           More details about hotel and lodging options coming soon!
         </p>
       </div>
 
       <div style={styles.section}>
-        <h4>Directions</h4>
+        <H4>Directions</H4>
         <p>
           Shuttles will be provided to and from Calistoga
         </p>

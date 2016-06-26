@@ -3,6 +3,7 @@ import createElement from 'react-stylematic';
 
 import {Form, FormItem, Text, Submit} from '../forms';
 import {Layout, LayoutItem, TextAlign, Padded} from '../../../lib/react-layout';
+import {H3} from '../typography';
 
 export default function YourInfo() {
   return (
@@ -13,7 +14,7 @@ export default function YourInfo() {
             <div style={styles.content}>
               <TextAlign center>
                 <img src="/assets/static/avocado.png" style={styles.image} />
-                <h3>Your Info</h3>
+                <H3>Your Info</H3>
               </TextAlign>
               <p>
                 We're excited for you to join us in Calistoga, CA for our wedding!

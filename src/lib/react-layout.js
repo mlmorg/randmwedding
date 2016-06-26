@@ -1,4 +1,5 @@
-import React from 'react';
+/* @jsx createElement */
+import createElement from 'react-stylematic';
 
 export function Relative({children}) {
   return (
@@ -75,7 +76,12 @@ export function LayoutItem({size, max, children}) {
       width: size ? (size / 12 * 100) + '%' : '100%',
       maxWidth: max || 'auto',
       boxSizing: 'border-box',
-      textAlign: 'left'
+      textAlign: 'left',
+
+      '@media(max-width: 750px)': {
+        display: 'block',
+        width: '100%'
+      }
     }}>
       {children}
     </div>

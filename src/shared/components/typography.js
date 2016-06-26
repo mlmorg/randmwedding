@@ -2,22 +2,22 @@
 import createElement from 'react-stylematic';
 
 export function H1({style, children, ...props}) {
-  return <h1 style={{...style, ...styles.h1}} {...props}>{children}</h1>;
+  return <h1 style={{...styles.h1, ...style}} {...props}>{children}</h1>;
 }
 export function H2({style, children, ...props}) {
-  return <h2 style={{...style, ...styles.h2}} {...props}>{children}</h2>;
+  return <h2 style={{...styles.h2, ...style}} {...props}>{children}</h2>;
 }
 export function H3({style, children, ...props}) {
-  return <h3 style={{...style, ...styles.h3}} {...props}>{children}</h3>;
+  return <h3 style={{...styles.h3, ...style}} {...props}>{children}</h3>;
 }
 export function H4({style, children, ...props}) {
-  return <h4 style={{...style, ...styles.h4}} {...props}>{children}</h4>;
+  return <h4 style={{...styles.h4, ...style}} {...props}>{children}</h4>;
 }
 export function H5({style, children, ...props}) {
-  return <h5 style={{...style, ...styles.h5}} {...props}>{children}</h5>;
+  return <h5 style={{...styles.h5, ...style}} {...props}>{children}</h5>;
 }
 export function H6({style, children, ...props}) {
-  return <h6 style={{...style, ...styles.h6}} {...props}>{children}</h6>;
+  return <h6 style={{...styles.h6, ...style}} {...props}>{children}</h6>;
 }
 
 const shared = {

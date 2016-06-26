@@ -9,13 +9,13 @@ const Layout = ({children}) => (
     <Helmet
       title="RandM Wedding"
       meta={[
-        {name: 'viewport', content: 'idth=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'}
+        {name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'}
       ]}
     />
     <NormalizeCss/>
     <GlobalStyles/>
     {children}
-    <script src="/assets/app/main.js"/>
+    <script src="/assets/app/main.js" async/>
   </div>
 );
 

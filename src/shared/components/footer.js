@@ -2,6 +2,7 @@
 import createElement from 'react-stylematic';
 
 import {TextAlign} from '../../lib/react-layout';
+import {H5} from './typography';
 
 export default function Footer() {
   return (
@@ -9,7 +10,7 @@ export default function Footer() {
       <TextAlign center>
         <img src="/assets/static/logo.png" style={styles.image}/>
         <div style={styles.subtitleWrapper}>
-          <h5 style={styles.subtitle}>See you in May!</h5>
+          <H5 style={styles.subtitle}>See you in May!</H5>
           <hr style={styles.hr}/>
         </div>
       </TextAlign>

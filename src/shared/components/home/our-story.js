@@ -2,6 +2,7 @@
 import createElement from 'react-stylematic';
 
 import {Layout, LayoutItem, TextAlign, Padded} from '../../../lib/react-layout';
+import {H3} from '../typography';
 
 export default function OurStory() {
   return (
@@ -15,7 +16,7 @@ export default function OurStory() {
         <Layout center>
           <LayoutItem max="750px">
             <TextAlign center>
-              <h3>Our Story</h3>
+              <H3>Our Story</H3>
               <p>
                 We met in January 2008 while studying abroad in Prague, in a bar called
                 "Double Trouble." Though we didn't know it at the time, in hindsight
