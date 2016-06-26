@@ -8,7 +8,7 @@ export default function Details() {
     <Padded style={styles.wrapper}>
       <div style={styles.content}>
         <TextAlign center>
-          <img src="/assets/static/tomato.png" style={styles.image}/>
+          <img src="/assets/static/orange.png" style={styles.image}/>
           <h3>FAQ & Details</h3>
         </TextAlign>
         <Layout>
@@ -81,7 +81,7 @@ function RightColumn() {
           Visit the petrified forest, or go for a hike
         </li>
         <li>
-          Taste wine at an over-the- top game of thrones-ish castle,
+          Taste wine at an over-the-top game of thrones-ish castle,
           after riding in a gondola, or at one of the oldest vineyards in the valley
         </li>
         <li>
@@ -103,7 +103,7 @@ function RightColumn() {
 
 const styles = {
   wrapper: {
-    backgroundColor: '#fef7ee'
+    backgroundColor: '#f3f4ee'
   },
   content: {
     marginTop: '-150px'
@@ -112,7 +112,7 @@ const styles = {
     height: '150px'
   },
   list: {
-    listStylePosition: 'inside',
+    textAlign: 'left',
     padding: '0px'
   }
 };

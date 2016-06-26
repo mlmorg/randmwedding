@@ -40,7 +40,7 @@ const styles = {
     position: 'absolute',
     top: '16px',
     width: '100%',
-    border: '0',
+    border: 'none',
     borderBottom: '1px solid #ddd',
     zIndex: '100'
   }

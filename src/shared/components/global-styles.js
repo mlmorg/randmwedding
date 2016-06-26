@@ -66,7 +66,7 @@ export default function GlobalStyles() {
       },
       h3: {
         ...shared.yonder,
-        fontSize: '80px',
+        fontSize: '75px',
         lineHeight: '0.8',
         textTransform: 'lowercase',
         margin: '0px 0px 30px 0px'

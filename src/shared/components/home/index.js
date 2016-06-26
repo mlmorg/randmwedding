@@ -7,17 +7,17 @@ import Nav from '../nav';
 import OurStory from './our-story';
 import Schedule from './schedule';
 import TravelInfo from './travel-info';
-import YourInfo from './your-info';
+import YourInfoContainer from '../../containers/home/your-info';
 
 export default function Home() {
   return (
     <div>
       <Hero/>
       <Nav/>
-      <YourInfo/>
+      <YourInfoContainer/>
       <OurStory/>
-      <TravelInfo/>
       <Schedule/>
+      <TravelInfo/>
       <Details/>
       <Footer/>
     </div>

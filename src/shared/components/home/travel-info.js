@@ -20,7 +20,7 @@ export default function TravelInfo() {
 function Content() {
   return (
     <TextAlign center>
-      <img src="/assets/static/fig.png" style={styles.image}/>
+      <img src="/assets/static/tomato.png" style={styles.image}/>
       <h3>Travel Info</h3>
 
       <div style={styles.section}>
@@ -59,7 +59,8 @@ function Content() {
 
 const styles = {
   wrapper: {
-    backgroundColor: '#f3f4ee'
+    backgroundColor: '#C74F41',
+    color: '#fff'
   },
   content: {
     marginTop: '-150px'

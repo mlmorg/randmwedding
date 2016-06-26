@@ -8,7 +8,7 @@ export default function Schedule() {
     <Padded style={styles.wrapper}>
       <div style={styles.content}>
         <TextAlign center>
-          <img src="/assets/static/orange.png" style={styles.image}/>
+          <img src="/assets/static/fig.png" style={styles.image}/>
           <h3>Schedule</h3>
         </TextAlign>
         <Layout>
@@ -85,7 +85,7 @@ function Sunday() {
 
 const styles = {
   wrapper: {
-    backgroundColor: '#fffef2'
+    backgroundColor: '#fff'
   },
   content: {
     marginTop: '-150px'
