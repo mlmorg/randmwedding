@@ -5,6 +5,7 @@ import React from 'react';
 import {renderToString} from 'react-dom/server';
 import jsonGlobals from 'safe-json-globals';
 import Helmet from 'react-helmet';
+import {renderStatic} from 'styletron-server';
 
 import createRouter from '../../shared/router';
 import createStore from '../../shared/store';
@@ -25,7 +26,9 @@ class Server {
   }
 
   render(App, initialState) {
-    const app = renderToString(App);
+    const {html: app, css, hydrationSrc} = renderStatic(() => {
+      return renderToString(App)
+    });
     const head = Helmet.rewind();
     const jsonGlobalState = jsonGlobals({initialState});
 
@@ -35,8 +38,10 @@ class Server {
       head.style.toString() +
       head.link.toString() +
       head.script.toString() +
+      `<style data-styletron>${css}</style>` +
       `<script>${jsonGlobalState}</script>` +
-      `</head><body><div id="app">${app}</div></body></html>`
+      `<script>${hydrationSrc}</script>` +
+      `</head><body><div id="app">${app}</div></body></html>`;
   }
 
   handler(req, res) {
