@@ -64,6 +64,11 @@ const styles = {
     ':hover': {
       color: '#A4C89A'
     },
+
+    '@media(max-width: 750px)': {
+      padding: '10px 15px',
+      fontSize: '11px'
+    }
   },
   linkActive: {
     backgroundColor: '#A4C89A',
