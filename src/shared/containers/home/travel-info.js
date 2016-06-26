@@ -5,11 +5,11 @@ import React from 'react';
 
 import {changeRouteActive} from '../../actions';
 import RouteActive from '../route-active';
-import YourInfo from '../../components/home/your-info';
+import TravelInfo from '../../components/home/travel-info';
 
-class YourInfoContainer extends RouteActive {
+class TravelInfoContainer extends RouteActive {
   render() {
-    return <YourInfo/>;
+    return <TravelInfo/>;
   }
 }
 
@@ -19,11 +19,11 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    isActive: changeRouteActive.bind(null, 'your-info')
+    isActive: changeRouteActive.bind(null, 'travel-info')
   }, dispatch);
 }
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(YourInfoContainer);
+)(TravelInfoContainer);

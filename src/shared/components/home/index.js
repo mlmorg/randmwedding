@@ -1,24 +1,24 @@
 import React from 'react';
 
-import Details from './details';
+import DetailsContainer from '../../containers/home/details';
 import Footer from '../footer';
-import Hero from './hero';
+import HeroContainer from '../../containers/home/hero';
 import NavContainer from '../../containers/nav';
-import OurStory from './our-story';
-import Schedule from './schedule';
-import TravelInfo from './travel-info';
+import OurStoryContainer from '../../containers/home/our-story';
+import ScheduleContainer from '../../containers/home/schedule';
+import TravelInfoContainer from '../../containers/home/travel-info';
 import YourInfoContainer from '../../containers/home/your-info';
 
 export default function Home() {
   return (
     <div>
-      <Hero/>
+      <HeroContainer/>
       <NavContainer/>
       <YourInfoContainer/>
-      <OurStory/>
-      <Schedule/>
-      <TravelInfo/>
-      <Details/>
+      <OurStoryContainer/>
+      <ScheduleContainer/>
+      <TravelInfoContainer/>
+      <DetailsContainer/>
       <Footer/>
     </div>
   );

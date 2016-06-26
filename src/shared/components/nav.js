@@ -10,10 +10,10 @@ export default function Nav({fixed, height, active}) {
       }}>
         <ul style={styles.list}>
           <Link href="#your-info" {...{active: active === 'your-info'}}>Your Info</Link>
-          <Link href="#our-story">Our Story</Link>
-          <Link href="#travel-info">Travel Info</Link>
-          <Link href="#schedule">Schedule</Link>
-          <Link href="#faq-and-details">FAQ &amp; Details</Link>
+          <Link href="#our-story" {...{active: active === 'our-story'}}>Our Story</Link>
+          <Link href="#schedule" {...{active: active === 'schedule'}}>Schedule</Link>
+          <Link href="#travel-info" {...{active: active === 'travel-info'}}>Travel Info</Link>
+          <Link href="#faq-and-details" {...{active: active === 'details'}}>FAQ &amp; Details</Link>
         </ul>
       </div>
     </div>
