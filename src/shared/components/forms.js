@@ -1,8 +1,6 @@
 /* @jsx createElement */
 import createElement from 'react-stylematic';
 
-let num = 1;
-
 export function Form({children}) {
   return <form style={styles.form}>{children}</form>;
 }
@@ -12,8 +10,7 @@ export function FormItem({children}) {
 }
 
 export function Text({label, ...props}) {
-  const id = `text-input-${num}`;
-  num += 1;
+  const id = `text-input-${label.toLowerCase().replace(/\W+/g, '')}`;
   return (
     <div>
       <label style={styles.label} htmlFor={id}>{label}</label>
