@@ -5,7 +5,7 @@ import nav from './nav';
 
 const rootReducer = combineReducers({
   nav,
-  manifest: (state) => state || {},
+  server: (state) => state || {},
   router: router5Reducer
 });
 

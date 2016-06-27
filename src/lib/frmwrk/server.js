@@ -8,6 +8,7 @@ import jsonGlobals from 'safe-json-globals';
 import Helmet from 'react-helmet';
 import {renderStatic} from 'styletron-server';
 import process from 'process';
+import isMobile from 'ismobilejs';
 
 import assetUrl from '../asset-url';
 import createRouter from '../../shared/router';
@@ -71,7 +72,11 @@ class Server {
 
     const router = createRouter();
     const store = createStore(router, {
-      manifest: this.manifest
+      server: {
+        manifest: this.manifest,
+        userAgent: req.headers['user-agent'],
+        isMobile: isMobile(req.headers['user-agent']).any
+      }
     });
 
     router.start(req.url, (err, state)  => {

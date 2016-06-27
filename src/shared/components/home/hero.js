@@ -6,6 +6,7 @@ import assetUrl from '../../../lib/asset-url';
 import Logo from '../logo';
 import {H1, H2, H5} from '../typography';
 import {Absolute, IntrinsicHeight} from '../../../lib/react-layout';
+import VideoContainer from '../../containers/video';
 
 export default function Hero() {
   return (
@@ -27,9 +28,7 @@ export default function Hero() {
         <H5>Calistoga, CA</H5>
       </div>
       <div style={styles.overlay}/>
-      <video width="100%" preload="auto" loop autoPlay muted>
-        <source src={assetUrl('tree.mp4')} type="video/mp4"></source>
-      </video>
+      <VideoContainer/>
     </IntrinsicHeight>
   );
 };

@@ -15,7 +15,7 @@ class Browser {
     this.initialState = getState('initialState');
     this.router = createRouter();
     this.store = createStore(this.router, this.initialState);
-    assetUrl.init(this.initialState.manifest);
+    assetUrl.init(this.initialState.server.manifest);
   }
 
   start() {
