@@ -13,6 +13,7 @@ build(function (err) {
 });
 
 function build(cb) {
+  console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
   series([
     rimraf.bind(null, 'dist'),
     compile,

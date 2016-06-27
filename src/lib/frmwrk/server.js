@@ -9,6 +9,7 @@ import Helmet from 'react-helmet';
 import {renderStatic} from 'styletron-server';
 import process from 'process';
 import isMobile from 'ismobilejs';
+import compression from 'compression';
 
 import assetUrl from '../asset-url';
 import createRouter from '../../shared/router';
@@ -22,6 +23,7 @@ class Server {
     this.appMount = st({url: '/assets', path: 'dist/browser'});
     this.Component = Component;
     this.server = createServer(this.handler.bind(this));
+    this.compression = compression();
     this.manifest = this.getManifest();
     assetUrl.init(this.manifest);
   }
@@ -62,13 +64,15 @@ class Server {
   }
 
   handler(req, res) {
-    const {appMount, staticMount, Component} = this;
+    const {appMount, Component} = this;
 
     const urlStart = req.url.split('/', 2).join('/');
     if (urlStart === '/assets' && appMount(req, res)) {
       console.log(`Rendered asset: ${req.url}`);
       return;
     }
+
+    this.compression(req, res, () => {});
 
     const router = createRouter();
     const store = createStore(router, {
