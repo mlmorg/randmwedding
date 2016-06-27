@@ -3,13 +3,14 @@ import createElement from 'react-stylematic';
 
 import {Padded, Layout, LayoutItem, TextAlign} from '../../../lib/react-layout';
 import {H3, H4} from '../typography';
+import assetUrl from '../../../lib/asset-url';
 
 export default function Details() {
   return (
     <Padded style={styles.wrapper}>
       <div id="details" style={styles.content}>
         <TextAlign center>
-          <img src="/assets/static/orange.png" style={styles.image}/>
+          <img src={assetUrl('orange.png')} style={styles.image}/>
           <H3>FAQ & Details</H3>
         </TextAlign>
         <Layout>

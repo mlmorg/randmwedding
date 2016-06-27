@@ -1,5 +1,6 @@
 import Helmet from 'react-helmet';
 import React from 'react';
+import assetUrl from '../../lib/asset-url';
 
 import NormalizeCss from '../../lib/react-normalize-css';
 import GlobalStyles from './global-styles';
@@ -15,7 +16,7 @@ const Layout = ({children}) => (
     <NormalizeCss/>
     <GlobalStyles/>
     {children}
-    <script src="/assets/app/main.js" async/>
+    <script src={assetUrl('main.js')} async/>
   </div>
 );
 

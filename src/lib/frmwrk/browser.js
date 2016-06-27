@@ -7,6 +7,7 @@ import App from '../../shared/containers/app';
 import createStore from '../../shared/store';
 import createRouter from '../../shared/router';
 import Root from './root';
+import assetUrl from '../../lib/asset-url';
 
 class Browser {
   constructor(Component) {
@@ -14,6 +15,7 @@ class Browser {
     this.initialState = getState('initialState');
     this.router = createRouter();
     this.store = createStore(this.router, this.initialState);
+    assetUrl.init(this.initialState.manifest);
   }
 
   start() {

@@ -1,5 +1,6 @@
 /* @jsx createElement */
 import createElement from 'react-stylematic';
+import assetUrl from '../../../lib/asset-url';
 
 import {Layout, LayoutItem, TextAlign, Padded} from '../../../lib/react-layout';
 import {H3} from '../typography';
@@ -10,7 +11,7 @@ export default function OurStory() {
       <div id="our-story" style={styles.content}>
         <Layout center>
           <LayoutItem max="600px">
-            <img src="/assets/static/rachel-matt.jpg" style={styles.image}/>
+            <img src={assetUrl('rachel-matt.jpg')} style={styles.image}/>
           </LayoutItem>
         </Layout>
         <Layout center>

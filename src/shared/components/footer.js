@@ -1,5 +1,6 @@
 /* @jsx createElement */
 import createElement from 'react-stylematic';
+import assetUrl from '../../lib/asset-url';
 
 import {TextAlign} from '../../lib/react-layout';
 import {H5} from './typography';
@@ -8,7 +9,7 @@ export default function Footer() {
   return (
     <div style={styles.wrapper}>
       <TextAlign center>
-        <img src="/assets/static/logo.png" style={styles.image}/>
+        <img src={assetUrl('logo.png')} style={styles.image}/>
         <div style={styles.subtitleWrapper}>
           <H5 style={styles.subtitle}>See you in May!</H5>
           <hr style={styles.hr}/>

@@ -1,5 +1,6 @@
 /* @jsx createElement */
 import createElement from 'react-stylematic';
+import assetUrl from '../../../lib/asset-url';
 
 import {Padded, Layout, LayoutItem, TextAlign} from '../../../lib/react-layout';
 import {H3, H4, H6} from '../typography';
@@ -9,7 +10,7 @@ export default function Schedule() {
     <Padded style={styles.wrapper}>
       <div id="schedule" style={styles.content}>
         <TextAlign center>
-          <img src="/assets/static/fig.png" style={styles.image}/>
+          <img src={assetUrl('fig.png')} style={styles.image}/>
           <H3>Schedule</H3>
         </TextAlign>
         <Layout>

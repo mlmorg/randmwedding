@@ -1,3 +1,4 @@
+import fs from 'fs';
 import st from 'st';
 import path from 'path';
 import {createServer} from 'http';
@@ -6,17 +7,31 @@ import {renderToString} from 'react-dom/server';
 import jsonGlobals from 'safe-json-globals';
 import Helmet from 'react-helmet';
 import {renderStatic} from 'styletron-server';
+import process from 'process';
 
+import assetUrl from '../asset-url';
 import createRouter from '../../shared/router';
 import createStore from '../../shared/store';
 import Root from './root';
 
+const cwd = process.cwd();
+
 class Server {
   constructor(Component) {
-    this.appMount = st({url: '/assets/app', path: 'dist/browser'});
-    this.staticMount = st({url: '/assets/static', path: 'static'});
+    this.appMount = st({url: '/assets', path: 'dist/browser'});
     this.Component = Component;
     this.server = createServer(this.handler.bind(this));
+    this.manifest = this.getManifest();
+    assetUrl.init(this.manifest);
+  }
+
+  getManifest() {
+    const manifestPath = path.join(cwd, 'dist/browser/manifest.json');
+    try {
+      return JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+    } catch (err) {
+      return {};
+    }
   }
 
   start() {
@@ -48,17 +63,16 @@ class Server {
   handler(req, res) {
     const {appMount, staticMount, Component} = this;
 
-    const urlStart = req.url.split('/', 3).join('/');
-    if (
-      (urlStart === '/assets/app' && appMount(req, res)) ||
-      (urlStart === '/assets/static' && staticMount(req, res))
-    ) {
+    const urlStart = req.url.split('/', 2).join('/');
+    if (urlStart === '/assets' && appMount(req, res)) {
       console.log(`Rendered asset: ${req.url}`);
       return;
     }
 
     const router = createRouter();
-    const store = createStore(router);
+    const store = createStore(router, {
+      manifest: this.manifest
+    });
 
     router.start(req.url, (err, state)  => {
       console.log('handling request for ' + req.url);

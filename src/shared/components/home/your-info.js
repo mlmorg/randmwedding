@@ -1,5 +1,6 @@
 /* @jsx createElement */
 import createElement from 'react-stylematic';
+import assetUrl from '../../../lib/asset-url';
 
 import {Form, FormItem, Text, Submit} from '../forms';
 import {Layout, LayoutItem, TextAlign, Padded} from '../../../lib/react-layout';
@@ -13,7 +14,7 @@ export default function YourInfo() {
           <div style={styles.box}>
             <div style={styles.content}>
               <TextAlign center>
-                <img src="/assets/static/avocado.png" style={styles.image} />
+                <img src={assetUrl('avocado.png')} style={styles.image} />
                 <H3>Your Info</H3>
               </TextAlign>
               <p>

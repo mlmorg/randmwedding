@@ -1,6 +1,7 @@
 /* @jsx createElement */
 import React from 'react';
 import createElement from 'react-stylematic';
+import assetUrl from '../../../lib/asset-url';
 
 import Logo from '../logo';
 import {H1, H2, H5} from '../typography';
@@ -27,7 +28,7 @@ export default function Hero() {
       </div>
       <div style={styles.overlay}/>
       <video width="100%" preload="auto" loop autoPlay muted>
-        <source src="/assets/static/tree.mp4" type="video/mp4"></source>
+        <source src={assetUrl('tree.mp4')} type="video/mp4"></source>
       </video>
     </IntrinsicHeight>
   );

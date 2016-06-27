@@ -1,5 +1,6 @@
 import React from 'react';
 import Styles from '../../lib/react-styles';
+import assetUrl from '../../lib/asset-url';
 
 export default function GlobalStyles() {
   return (
@@ -9,22 +10,22 @@ export default function GlobalStyles() {
           fontFamily: '"Yonder"',
           fontStyle: 'normal',
           fontWeight: 'normal',
-          src: 'url("/assets/static/yonder.woff2") format("woff2")',
-          src: 'url("/assets/static/yonder.woff") format("woff")'
+          src: `url("${assetUrl('yonder.woff2')}") format("woff2")`,
+          src: `url("${assetUrl('yonder.woff')}") format("woff")`
         },
         {
           fontFamily: '"Brandon Grotesque"',
           fontStyle: 'normal',
           fontWeight: 'normal',
-          src: 'url("/assets/static/brandongrotesque-regular-webfont.woff2") format("woff2")',
-          src: 'url("/assets/static/brandongrotesque-regular-webfont.woff") format("woff")'
+          src: `url("${assetUrl('brandongrotesque-regular-webfont.woff2')}") format("woff2")`,
+          src: `url("${assetUrl('brandongrotesque-regular-webfont.woff')}") format("woff")`
         },
         {
           fontFamily: '"Brandon Grotesque"',
           fontStyle: 'normal',
           fontWeight: 'bold',
-          src: 'url("/assets/static/brandongrotesque-black-webfont.woff2") format("woff2")',
-          src: 'url("/assets/static/brandongrotesque-black-webfont.woff") format("woff")'
+          src: `url("${assetUrl('brandongrotesque-black-webfont.woff2')}") format("woff2")`,
+          src: `url("${assetUrl('brandongrotesque-black-webfont.woff')}") format("woff")`
         }
       ],
 

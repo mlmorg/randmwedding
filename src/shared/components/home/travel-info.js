@@ -1,5 +1,6 @@
 /* @jsx createElement */
 import createElement from 'react-stylematic';
+import assetUrl from '../../../lib/asset-url';
 
 import {Layout, LayoutItem, TextAlign, Padded} from '../../../lib/react-layout';
 import {H3, H4} from '../typography';
@@ -21,7 +22,7 @@ export default function TravelInfo() {
 function Content() {
   return (
     <TextAlign center>
-      <img src="/assets/static/tomato.png" style={styles.image}/>
+      <img src={assetUrl('tomato.png')} style={styles.image}/>
       <H3>Travel Info</H3>
 
       <div style={styles.section}>
