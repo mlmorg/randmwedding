@@ -80,7 +80,8 @@ export function LayoutItem({size, max, children}) {
 
       '@media(max-width: 750px)': {
         display: 'block',
-        width: '100%'
+        width: '100%',
+        maxWidth: '100%'
       }
     }}>
       {children}
