@@ -40,7 +40,7 @@ class NavContainer extends React.Component {
   }
 
   onViewChange() {
-    this.setRoutePositions();
+    this.setRouteStarts();
     this.changeNavState();
   }
 
@@ -64,17 +64,18 @@ class NavContainer extends React.Component {
     this.props.changeNavState(activeRoute, affix, height);
   }
 
-  setRoutePositions() {
-    this.positions = this.nodes.map((node) => {
-      return [node.offsetTop, node.offsetTop + node.offsetHeight]
+  setRouteStarts() {
+    this.starts = this.nodes.map((node) => {
+      return node.offsetTop;
     });
   }
 
   getActiveRoute() {
     const scrollTop = window.pageYOffset + this.node.firstElementChild.offsetHeight;
     let idx;
-    this.positions.some((position, i) => {
-      if (scrollTop >= position[0] && scrollTop < position[1]) {
+    this.starts.some((start, i) => {
+      let nextStart = this.starts[i + 1];
+      if (scrollTop >= start && (!nextStart || scrollTop < nextStart)) {
         idx = i;
       }
     });

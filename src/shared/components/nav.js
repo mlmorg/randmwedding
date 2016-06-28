@@ -1,12 +1,7 @@
 /* @jsx createElement */
 import createElement from 'react-stylematic';
-import window from 'global/window';
 
 export default function Nav({activeRoute, affix, height}) {
-  if (window && window.innerWidth < 750) {
-    height = '0';
-  }
-
   return (
     <div style={{height: height + 'px'}}>
       <div style={{
@@ -18,7 +13,7 @@ export default function Nav({activeRoute, affix, height}) {
           <Link href="#our-story" {...{active: activeRoute === 'our-story'}}>Our Story</Link>
           <Link href="#schedule" {...{active: activeRoute === 'schedule'}}>Schedule</Link>
           <Link href="#travel-info" {...{active: activeRoute === 'travel-info'}}>Travel Info</Link>
-          <Link href="#faq-and-details" {...{active: activeRoute === 'details'}}>FAQ &amp; Details</Link>
+          <Link href="#faq-and-details" {...{active: activeRoute === 'faq-and-details'}}>FAQ &amp; Details</Link>
         </ul>
       </div>
     </div>
@@ -40,12 +35,7 @@ const styles = {
   wrapper: {
     width: '100%',
     backgroundColor: '#fff',
-    zIndex: '900',
-
-    '@media(max-width: 750px)': {
-      position: 'fixed',
-      top: '0px'
-    }
+    zIndex: '900'
   },
   wrapperFixed: {
     position: 'fixed',

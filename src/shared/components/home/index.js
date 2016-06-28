@@ -1,5 +1,4 @@
 import React from 'react';
-import window from 'global/window';
 
 import Details from './faq-and-details';
 import Footer from '../footer';
@@ -10,15 +9,13 @@ import Schedule from './schedule';
 import TravelInfo from './travel-info';
 import YourInfo from './your-info';
 
-export default function Home({paddingTop}) {
-  let styles = {};
-  if (window && window.innerWidth < 750) {
-    styles = {paddingTop};
-  }
+export default function Home({isMobile}) {
+  const firstComponent = isMobile ? <NavContainer/> : <Hero/>;
+  const secondComponent = isMobile ? <Hero/> : <NavContainer/>;
   return (
-    <div style={styles}>
-      <Hero/>
-      <NavContainer/>
+    <div>
+      {firstComponent}
+      {secondComponent}
       <YourInfo/>
       <OurStory/>
       <Schedule/>
