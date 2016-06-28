@@ -8,7 +8,7 @@ import assetUrl from '../../../lib/asset-url';
 export default function Details() {
   return (
     <Padded style={styles.wrapper}>
-      <div id="details" style={styles.content}>
+      <div id="faq-and-details" style={styles.content}>
         <TextAlign center>
           <img src={assetUrl('orange.png')} style={styles.image}/>
           <H3>FAQ & Details</H3>

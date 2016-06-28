@@ -1,7 +1,12 @@
 /* @jsx createElement */
 import createElement from 'react-stylematic';
+import window from 'global/window';
 
 export default function Nav({activeRoute, affix, height}) {
+  if (window && window.innerWidth < 750) {
+    height = '0';
+  }
+
   return (
     <div style={{height: height + 'px'}}>
       <div style={{
@@ -35,7 +40,12 @@ const styles = {
   wrapper: {
     width: '100%',
     backgroundColor: '#fff',
-    zIndex: '900'
+    zIndex: '900',
+
+    '@media(max-width: 750px)': {
+      position: 'fixed',
+      top: '0px'
+    }
   },
   wrapperFixed: {
     position: 'fixed',

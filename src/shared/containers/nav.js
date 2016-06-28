@@ -4,6 +4,7 @@ import {findDOMNode} from 'react-dom';
 
 import debounce from 'debounce';
 import React from 'react';
+import window from 'global/window';
 
 import {changeNavState} from '../actions';
 
@@ -17,7 +18,7 @@ class NavContainer extends React.Component {
       'our-story',
       'schedule',
       'travel-info',
-      'details'
+      'faq-and-details'
     ];
     this.onScrollFn = debounce(this.onScrollChange.bind(this), 10);
     this.onResizeFn = debounce(this.onViewChange.bind(this), 10);
