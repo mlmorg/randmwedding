@@ -4,6 +4,7 @@ var parallel = require('run-parallel');
 var version = require('./version-assets');
 var copy = require('copy');
 var rimraf = require('rimraf');
+var upload = require('./upload');
 
 build(function (err) {
   if (err) {
@@ -17,7 +18,12 @@ function build(cb) {
   series([
     rimraf.bind(null, 'dist'),
     compile,
-    version.bind(null, {})
+    version.bind(null, {}),
+    upload.bind(null, {
+      key: process.env.AWS_KEY,
+      secret: process.env.AWS_SECRET,
+      bucket: 'mlmorg-randmwedding'
+    })
   ], cb);
 }
 
