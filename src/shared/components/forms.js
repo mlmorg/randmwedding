@@ -23,6 +23,13 @@ export function Submit({...props}) {
   return <input type="submit" style={styles.submit} {...props}/>;
 }
 
+const shared = {
+  input: {
+    borderRadius: '0px',
+    appearance: 'none'
+  }
+};
+
 const styles = {
   form: {
     display: 'block',
@@ -44,6 +51,7 @@ const styles = {
     letterSpacing: '2px'
   },
   'text': {
+    ...shared.input,
     width: '100%',
     fontSize: '18px',
     lineHeight: '1',
@@ -56,6 +64,7 @@ const styles = {
     }
   },
   submit: {
+    ...shared.input,
     display: 'inline-block',
     fontSize: '12px',
     padding: '5px 10px',

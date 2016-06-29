@@ -45,11 +45,7 @@ export default function GlobalStyles() {
         marginTop: '0px',
         marginBottom: '30px'
       },
-
-      input: {
-        borderRadius: '0px'
-      },
-
+      
       '::-webkit-input-placeholder': {
         color: '#777'
       },
