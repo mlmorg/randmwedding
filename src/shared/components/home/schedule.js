@@ -8,7 +8,7 @@ import {H3, H4, H6} from '../typography';
 export default function Schedule() {
   return (
     <Padded style={styles.wrapper}>
-      <div id="schedule" style={styles.content}>
+      <div id="section-schedule" style={styles.content}>
         <TextAlign center>
           <img src={assetUrl('fig.png')} style={styles.image}/>
           <H3>Schedule</H3>

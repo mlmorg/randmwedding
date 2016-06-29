@@ -22,14 +22,16 @@ class NavContainer extends React.Component {
     ];
     this.onScrollFn = debounce(this.onScrollChange.bind(this), 10);
     this.onResizeFn = debounce(this.onViewChange.bind(this), 10);
+    this.onHashChangeFn = this.scrollToRoute.bind(this);
   }
 
   componentDidMount() {
     window.addEventListener('scroll', this.onScrollFn);
     window.addEventListener('resize', this.onResizeFn);
+    window.addEventListener('hashchange', this.onHashChangeFn);
 
     this.node = findDOMNode(this);
-    this.nodes = this.routes.map((id) => document.getElementById(id));
+    this.nodes = this.routes.map((id) => document.getElementById(`section-${id}`));
 
     this.onViewChange();
   }
@@ -37,6 +39,7 @@ class NavContainer extends React.Component {
   componentWillUnmount() {
     window.removeEventListener('scroll', this.onScrollFn);
     window.removeEventListener('resize', this.onResizeFn);
+    window.removeEventListener('hashchange', this.onHashChangeFn);
   }
 
   onViewChange() {
@@ -51,7 +54,7 @@ class NavContainer extends React.Component {
   changeNavState() {
     const activeRoute = this.getActiveRoute();
     const affix = this.shouldBeFixed();
-    const height = this.node.firstElementChild.offsetHeight;
+    const height = this.getNavHeight();
 
     if (
       activeRoute === this.props.activeRoute &&
@@ -71,7 +74,7 @@ class NavContainer extends React.Component {
   }
 
   getActiveRoute() {
-    const scrollTop = window.pageYOffset + this.node.firstElementChild.offsetHeight;
+    const scrollTop = window.pageYOffset + this.getNavHeight();
     let idx;
     this.starts.some((start, i) => {
       let nextStart = this.starts[i + 1];
@@ -88,9 +91,48 @@ class NavContainer extends React.Component {
     return scrollTop >= position;
   }
 
+  scrollToRoute() {
+    const route = window.location.hash.substr(1);
+    const routeIndex = this.routes.indexOf(route);
+    if (routeIndex >= 0) {
+      const routeStart = this.starts[routeIndex];
+      const navHeight = this.getNavHeight();
+      scrollTo(document.body, routeStart - navHeight, 500);
+    }
+  }
+
+  getNavHeight() {
+    return this.node.firstElementChild.offsetHeight;
+  }
+
   render() {
     return <Nav {...this.props}/>
   }
+}
+
+function scrollTo(element, to, duration) {
+  const start = element.scrollTop;
+  const change = to - start;
+  let currentTime = 0;
+  let increment = 20;
+
+  function animateScroll(){
+    currentTime += increment;
+    const val = easeInOutQuad(currentTime, start, change, duration);
+    element.scrollTop = val;
+    if(currentTime < duration) {
+      setTimeout(animateScroll, increment);
+    }
+  }
+
+  animateScroll();
+}
+
+function easeInOutQuad(currentTime, start, change, duration) {
+  currentTime /= duration/2;
+  if (currentTime < 1) return change/2*currentTime*currentTime + start;
+  currentTime--;
+  return -change/2 * (currentTime*(currentTime-2) - 1) + start;
 }
 
 function mapStateToProps(state) {

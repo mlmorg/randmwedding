@@ -8,7 +8,7 @@ import {H3, H4} from '../typography';
 export default function TravelInfo() {
   return (
     <Padded style={styles.wrapper}>
-      <div id="travel-info" style={styles.content}>
+      <div id="section-travel-info" style={styles.content}>
         <Layout center>
           <LayoutItem max="600px">
             <Content/>
