@@ -46,6 +46,10 @@ export default function GlobalStyles() {
         marginBottom: '30px'
       },
 
+      input: {
+        borderRadius: '0px'
+      },
+
       '::-webkit-input-placeholder': {
         color: '#777'
       },
