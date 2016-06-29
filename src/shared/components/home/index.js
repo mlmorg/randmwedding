@@ -9,13 +9,11 @@ import Schedule from './schedule';
 import TravelInfo from './travel-info';
 import YourInfo from './your-info';
 
-export default function Home({isMobile}) {
-  const firstComponent = isMobile ? <NavContainer/> : <Hero/>;
-  const secondComponent = isMobile ? <Hero/> : <NavContainer/>;
+export default function Home() {
   return (
     <div>
-      {firstComponent}
-      {secondComponent}
+      <NavContainer/>
+      <Hero/>
       <YourInfo/>
       <OurStory/>
       <Schedule/>

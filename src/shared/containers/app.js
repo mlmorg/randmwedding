@@ -2,7 +2,7 @@ import React, {createElement} from 'react';
 import {connect} from 'react-redux';
 import {routeNodeSelector} from 'redux-router5';
 
-import Home from '../containers/home';
+import Home from '../components/home';
 import Layout from '../components/layout';
 import NotFound from '../components/not-found';
 
