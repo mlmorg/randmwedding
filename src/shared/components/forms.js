@@ -54,8 +54,8 @@ const styles = {
     ...shared.input,
     width: '100%',
     fontSize: '18px',
-    lineHeight: '1',
-    padding: '8px',
+    lineHeight: '2.3',
+    padding: '0px 8px',
     border: '1px solid #ddd',
 
     ':focus': {
@@ -67,7 +67,8 @@ const styles = {
     ...shared.input,
     display: 'inline-block',
     fontSize: '12px',
-    padding: '5px 10px',
+    padding: '0px 10px',
+    lineHeight: '2.5',
     border: '2px solid #A4C89A',
     background: 'none',
     cursor: 'pointer',
