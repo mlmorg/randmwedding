@@ -6,6 +6,8 @@ var insertGlobals = require('insert-module-globals');
 var watchify = require('watchify');
 var write = require('write');
 
+const NODE_ENV = process.env.NODE_ENV || 'development';
+
 module.exports = bundler;
 
 function getGlobalOptions() {
@@ -29,6 +31,9 @@ function getGlobalOptions() {
       cache: {},
       packageCache: {},
       plugin: [watchify]
+    },
+    production: {
+      debug: false
     }
   };
 }
@@ -68,7 +73,8 @@ function getBrowserifyOptions(options) {
     globalBrowserifyOptions.default,
     options.browser ? globalBrowserifyOptions.browser : {},
     options.node ? globalBrowserifyOptions.node : {},
-    options.watch ? globalBrowserifyOptions.watch : {}
+    options.watch ? globalBrowserifyOptions.watch : {},
+    NODE_ENV === 'production' ? globalBrowserifyOptions.production : {}
   );
 }
 
