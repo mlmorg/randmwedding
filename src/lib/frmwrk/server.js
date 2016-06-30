@@ -17,6 +17,7 @@ import createStore from '../../shared/store';
 import Root from './root';
 
 const cwd = process.cwd();
+const ASSET_PREFIX = process.env.ASSET_PREFIX || '/assets';
 
 class Server {
   constructor(Component) {
@@ -25,7 +26,7 @@ class Server {
     this.server = createServer(this.handler.bind(this));
     this.compression = compression();
     this.manifest = this.getManifest();
-    assetUrl.init(this.manifest);
+    assetUrl.init(ASSET_PREFIX, this.manifest);
   }
 
   getManifest() {
@@ -78,6 +79,7 @@ class Server {
     const store = createStore(router, {
       server: {
         manifest: this.manifest,
+        assetPrefix: ASSET_PREFIX,
         userAgent: req.headers['user-agent'],
         isMobile: isMobile(req.headers['user-agent']).any
       }
