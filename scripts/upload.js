@@ -38,7 +38,9 @@ function uploadToS3(options, cb) {
   }, cb);
 
   function putFile(path, key, _cb) {
-    client.putFile(path, key, function onResponse(err, res) {
+    client.putFile(path, key, {
+      'Cache-Control': 'max-age=31536000'
+    }, function onResponse(err, res) {
       if (err) {
         return _cb(err);
       }
