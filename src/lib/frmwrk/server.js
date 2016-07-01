@@ -10,6 +10,7 @@ import {renderStatic} from 'styletron-server';
 import process from 'process';
 import isMobile from 'ismobilejs';
 import compression from 'compression';
+import jsonBody from 'body/json';
 
 import assetUrl from '../asset-url';
 import createRouter from '../../shared/router';
@@ -20,12 +21,15 @@ const cwd = process.cwd();
 const ASSET_PREFIX = process.env.ASSET_PREFIX || '/assets';
 
 class Server {
-  constructor(Component) {
-    this.appMount = st({url: '/assets', path: 'dist/browser'});
+  constructor(Component, apiObj) {
     this.Component = Component;
+    this.API = apiObj;
+
+    this.appMount = st({url: '/assets', path: 'dist/browser'});
     this.server = createServer(this.handler.bind(this));
     this.compression = compression();
     this.manifest = this.getManifest();
+
     assetUrl.init(ASSET_PREFIX, this.manifest);
   }
 
@@ -65,13 +69,42 @@ class Server {
   }
 
   handler(req, res) {
-    const {appMount, Component} = this;
+    const {appMount, Component, API} = this;
+    const urlParts = req.url.split('/');
 
-    const urlStart = req.url.split('/', 2).join('/');
-    if (urlStart === '/assets' && appMount(req, res)) {
+    // Static assets
+    if (urlParts[1] === 'assets' && appMount(req, res)) {
       console.log(`Rendered asset: ${req.url}`);
       return;
     }
+
+    // API
+    if (urlParts[1] === 'api' && API[urlParts[2]]) {
+      function handleResponse(statusCode, data) {
+        res.writeHead(statusCode, {'Content-Type': 'application/json'});
+        res.end(JSON.stringify(data));
+      }
+
+      function onApiResponse(err, data) {
+        if (err) {
+          console.log('Error reaching API', err);
+          return handleResponse(502, {error:'Upstream API error'});
+        }
+        return handleResponse(200, data);
+      }
+
+      function callApi(err, body) {
+        if (err) {
+          console.log('Error parsing body', err);
+          return handleResponse(400, {error: 'Bad request'});
+        }
+        API[urlParts[2]](req, body, onApiResponse);
+      }
+
+      return jsonBody(req, res, callApi);
+    }
+
+    // Everything else is rendering the app
 
     this.compression(req, res, () => {});
 
@@ -107,6 +140,6 @@ class Server {
   }
 }
 
-export default function initServer(Component) {
-  return new Server(Component);
+export default function initServer(Component, apiObj) {
+  return new Server(Component, apiObj);
 }
