@@ -71,6 +71,7 @@ const styles = {
     paddingTop: '30px'
   },
   image: {
+    width: '175px',
     height: '150px'
   }
 };

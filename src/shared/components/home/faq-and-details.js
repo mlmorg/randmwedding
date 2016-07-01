@@ -111,6 +111,7 @@ const styles = {
     marginTop: '-150px'
   },
   image: {
+    width: '253px',
     height: '150px'
   },
   list: {

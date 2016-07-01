@@ -64,9 +64,11 @@ const styles = {
   },
   logo: {
     width: '90px',
+    height: '50px',
 
     '@media(max-width: 750px)': {
-      width: '30px'
+      width: '30px',
+      height: '17px'
     }
   },
   title: {

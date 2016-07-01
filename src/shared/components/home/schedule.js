@@ -93,6 +93,7 @@ const styles = {
     marginTop: '-150px'
   },
   image: {
+    width: '133px',
     height: '150px'
   }
 };

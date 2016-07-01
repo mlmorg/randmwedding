@@ -25,7 +25,8 @@ const styles = {
     marginTop: '-60px'
   },
   image: {
-    width: '150px'
+    width: '150px',
+    height: '109px'
   },
   subtitleWrapper: {
     position: 'relative',

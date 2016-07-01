@@ -53,6 +53,7 @@ const styles = {
     marginTop: -(30 + 65) + 'px'
   },
   image: {
+    width: '180px',
     height: '130px'
   }
 };
