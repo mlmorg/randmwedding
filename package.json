@@ -33,7 +33,7 @@
     "envify": "^3.4.0",
     "express": "^4.13.4",
     "global": "^4.3.0",
-    "google-auth-library": "^0.9.8",
+    "google-auth-library": "mlmorg/google-auth-library-nodejs#177d0d940dfb458028ee05d44c0e9465e16b271d",
     "googleapis": "^9.0.0",
     "inline-style": "^2.0.0",
     "insert-module-globals": "^7.0.1",
