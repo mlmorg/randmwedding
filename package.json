@@ -15,8 +15,8 @@
     "postinstall": "npm run build"
   },
   "engines": {
-    "node": "4.2.x",
-    "npm": "3.3.x"
+    "node": "4.2.1",
+    "npm": "3.3.9"
   },
   "dependencies": {
     "async-each": "^1.0.0",
