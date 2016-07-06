@@ -10,7 +10,6 @@ import {renderStatic} from 'styletron-server';
 import process from 'process';
 import isMobile from 'ismobilejs';
 import compression from 'compression';
-import jsonBody from 'body/json';
 
 import assetUrl from '../asset-url';
 import createRouter from '../../shared/router';
@@ -21,15 +20,12 @@ const cwd = process.cwd();
 const ASSET_PREFIX = process.env.ASSET_PREFIX || '/assets';
 
 class Server {
-  constructor(Component, API) {
-    this.Component = Component;
-    this.API = new API();
-
+  constructor(Component) {
     this.appMount = st({url: '/assets', path: 'dist/browser'});
+    this.Component = Component;
     this.server = createServer(this.handler.bind(this));
     this.compression = compression();
     this.manifest = this.getManifest();
-
     assetUrl.init(ASSET_PREFIX, this.manifest);
   }
 
@@ -44,13 +40,8 @@ class Server {
 
   start() {
     const port = process.env.PORT || 3000;
-    this.API.init((err) => {
-      if (err) {
-        throw err;
-      }
-      this.server.listen(port, function () {
-        console.log(`listening at http://localhost:${port}`);
-      });
+    this.server.listen(port, function () {
+      console.log(`listening at http://localhost:${port}`);
     });
   }
 
@@ -74,48 +65,13 @@ class Server {
   }
 
   handler(req, res) {
-    const {appMount, Component, API} = this;
-    const urlParts = req.url.split('/');
+    const {appMount, Component} = this;
 
-    // Static assets
-    if (urlParts[1] === 'assets' && appMount(req, res)) {
+    const urlStart = req.url.split('/', 2).join('/');
+    if (urlStart === '/assets' && appMount(req, res)) {
       console.log(`Rendered asset: ${req.url}`);
       return;
     }
-
-    // API
-    if (urlParts[1] === 'api' && API[urlParts[2]]) {
-      function handleResponse(statusCode, data) {
-        res.writeHead(statusCode, {'Content-Type': 'application/json'});
-        res.end(JSON.stringify(data));
-      }
-
-      function onApiResponse(err, data) {
-        if (err && err.statusCode) {
-          console.log('API statusCode error', err);
-          return handleResponse(err.statusCode, {error: err.message});
-        }
-
-        if (err) {
-          console.log('Error reaching API', err);
-          return handleResponse(502, {error:'Upstream API error'});
-        }
-
-        return handleResponse(200, data);
-      }
-
-      function callApi(err, body) {
-        if (err) {
-          console.log('Error parsing body', err);
-          return handleResponse(400, {error: 'Bad request'});
-        }
-        API[urlParts[2]](req, body, onApiResponse);
-      }
-
-      return jsonBody(req, res, callApi);
-    }
-
-    // Everything else is rendering the app
 
     this.compression(req, res, () => {});
 
@@ -151,6 +107,6 @@ class Server {
   }
 }
 
-export default function initServer(Component, API) {
-  return new Server(Component, API);
+export default function initServer(Component) {
+  return new Server(Component);
 }
