@@ -115,7 +115,6 @@ const styles = {
     height: '150px'
   },
   list: {
-    textAlign: 'left',
-    padding: '0px'
+    textAlign: 'left'
   }
 };
