@@ -17,6 +17,9 @@ export function saveAddress(payload) {
       method: 'POST',
       json: payload
     }, function (err, res, body) {
+      // set hash
+      window.location.hash = 'your-info';
+
       if (err) {
         body = {error: 'Failed making request'};
       }
