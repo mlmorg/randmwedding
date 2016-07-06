@@ -21,9 +21,9 @@ const cwd = process.cwd();
 const ASSET_PREFIX = process.env.ASSET_PREFIX || '/assets';
 
 class Server {
-  constructor(Component, apiObj) {
+  constructor(Component, API) {
     this.Component = Component;
-    this.API = apiObj;
+    this.API = new API();
 
     this.appMount = st({url: '/assets', path: 'dist/browser'});
     this.server = createServer(this.handler.bind(this));
@@ -44,8 +44,13 @@ class Server {
 
   start() {
     const port = process.env.PORT || 3000;
-    this.server.listen(port, function () {
-      console.log(`listening at http://localhost:${port}`);
+    this.API.init((err) => {
+      if (err) {
+        throw err;
+      }
+      this.server.listen(port, function () {
+        console.log(`listening at http://localhost:${port}`);
+      });
     });
   }
 
@@ -86,10 +91,16 @@ class Server {
       }
 
       function onApiResponse(err, data) {
+        if (err && err.statusCode) {
+          console.log('API statusCode error', err);
+          return handleResponse(err.statusCode, {error: err.message});
+        }
+
         if (err) {
           console.log('Error reaching API', err);
           return handleResponse(502, {error:'Upstream API error'});
         }
+
         return handleResponse(200, data);
       }
 
@@ -140,6 +151,6 @@ class Server {
   }
 }
 
-export default function initServer(Component, apiObj) {
-  return new Server(Component, apiObj);
+export default function initServer(Component, API) {
+  return new Server(Component, API);
 }

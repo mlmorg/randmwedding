@@ -1,8 +1,8 @@
 /* @jsx createElement */
 import createElement from 'react-stylematic';
 
-export function Form({children}) {
-  return <form style={styles.form}>{children}</form>;
+export function Form({onSubmit, children}) {
+  return <form onSubmit={onSubmit} style={styles.form}>{children}</form>;
 }
 
 export function FormItem({children}) {

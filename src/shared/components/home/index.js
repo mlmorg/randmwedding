@@ -7,7 +7,7 @@ import NavContainer from '../../containers/nav';
 import OurStory from './our-story';
 import Schedule from './schedule';
 import TravelInfo from './travel-info';
-import YourInfo from './your-info';
+import YourInfo from '../../containers/your-info';
 
 export default function Home() {
   return (
