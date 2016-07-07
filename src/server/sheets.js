@@ -1,4 +1,4 @@
-import google from 'googleapis';
+import Gsheets from 'googleapis/apis/sheets/v4';
 import GoogleAuth from 'google-auth-library';
 
 const CREDS = {
@@ -13,7 +13,8 @@ export default class Sheets {
     this.expiry = 0;
     this.auth = new GoogleAuth();
     this.jwt = new this.auth.JWT(CREDS.client_email, null, CREDS.private_key, SCOPES, null);
-    this.sheets = google.sheets('v4');
+    this.sheets = new Gsheets();
+    this.sheets.google = {_options: {}};
     this.options = {
       auth: this.jwt,
       spreadsheetId: SPREADSHEET,
