@@ -24,7 +24,7 @@ export default function OurStory() {
                 it was definitely love at first sight. After that, our friendship and
                 romance blossomed across continents and cities from Prague to New York
                 to Seattle to Baltimore to Austin to Los Angeles, finally landing together
-                in San Francisco. In February 2015, we woke up one morning and decided
+                in San Francisco. In February 2016, we woke up one morning and decided
                 to get married. Our dog, Tanner, also approved of this arrangement.
                 And now, we're inviting you all to join us on the journey!
               </p>

@@ -34,17 +34,12 @@ function LeftColumn() {
     <TextAlign center>
       <H4>Attire</H4>
       <p>
-        Semi-formal / dressy casual /cocktail attire. The wedding is on a ranch.
-        Ties and heels are optional, but if you want to be fancy, go for it.
-        Expect to be outside and walking around on gravel, stone, grass and wood.
+        Semi-formal / dressy casual /cocktail attire. The wedding is on a ranch. Ties and heels are optional, but if you want to be fancy, go for it. Expect to be outside and walking around on gravel, stone, grass and wood.
       </p>
 
       <H4>Weather</H4>
       <p>
-        The average high in Calistoga in May is 78, and low is around 46. In
-        other words, warm in the afternoon, chilly in the evening. We'll be
-        outside when it's warm and inside when it's chilly - but be prepared for
-        a temperature change!
+        The average high in Calistoga in May is 78, and low is around 46. In other words, warm in the afternoon, chilly in the evening. We'll be outside when it's warm and inside when it's chilly - but be prepared for a temperature change! <a target="_blank" href="https://weather.com/weather/today/l/USCA0156:1:US">View current weather</a>.
       </p>
     </TextAlign>
   );
@@ -55,14 +50,12 @@ function CenterColumn() {
     <TextAlign center>
       <H4>Music</H4>
       <p>
-        We're excited to have Dart DJ spinning tunes for the wedding. We'll
-        also have a silent disco. And yes, there will be glow sticks for all.
+        We're excited to have <a target="_blank" href="http://www.dart-dj.com/">Dart DJ</a> spinning tunes for the wedding. We'll also have a silent disco. And yes, there will be glow sticks for all.
       </p>
 
       <H4>Food</H4>
       <p>
-        Check back closer to the wedding for details. Fruits, vegetables, beer
-        and wine will be prominent.
+        Check back closer to the wedding for details. Fruits, vegetables, beer and wine will be prominent.
       </p>
     </TextAlign>
   );
@@ -73,30 +66,28 @@ function RightColumn() {
     <TextAlign center>
       <H4>Gifts</H4>
       <p>
-        Your presence is your present. We'd prefer no gifts, but if you insist
-        here are some options, including donating to our favorite nonprofits.
+        Your presence is your present. We'd prefer no gifts, but if you insist <a target="_blank" href="https://www.zola.com/registry/randmwedding">here are some options</a>, including donating to our favorite nonprofits.
       </p>
 
       <H4>Things To Do</H4>
       <ul style={styles.list}>
         <li>
-          Visit the petrified forest, or go for a hike
+          Visit the <a target="_blank" href="http://www.petrifiedforest.org/">petrified forest</a>, or <a target="_blank" href="http://www.parks.ca.gov/?page_id=477">go for a hike</a>
         </li>
         <li>
-          Taste wine at an over-the-top game of thrones-ish castle,
-          after riding in a gondola, or at one of the oldest vineyards in the valley
+          Taste wine at an <a target="_blank" href="http://www.castellodiamorosa.com/">over-the-top game of thrones-ish castle</a>, after <a target="_blank" href="http://www.sterlingvineyards.com/">riding in a gondola</a>, or at <a target="_blank" href="http://www.schramsberg.com/">one of the oldest vineyards in the valley</a>
         </li>
         <li>
-          More winery options for the wine snobs out there
+          Or <a target="_blank" href="http://www.napavalley.com/2015/06/23/the-15-best-wineries-in-calistoga/">find another winery</a> for all you wine snobs out there
         </li>
         <li>
-          Swim in a geyser-fed mineral pool or take a mud bath
+          Swim in a <a target="_blank" href="https://www.indianspringscalistoga.com/">geyser-fed mineral pool</a> or <a target="_blank" href="http://www.drwilkinson.com/manandmud.html">take a mud bath</a>
         </li>
         <li>
-          See California's Old Faithful Geyser
+          See <a target="_blank" href="http://www.oldfaithfulgeyser.com/">California's Old Faithful Geyser</a>
         </li>
         <li>
-          Go to a music festival
+          Go to a <a target="_blank" href="http://www.bottlerocknapavalley.com/">music festival</a>
         </li>
       </ul>
     </TextAlign>

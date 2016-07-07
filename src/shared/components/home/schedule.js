@@ -12,6 +12,7 @@ export default function Schedule() {
         <TextAlign center>
           <img src={assetUrl('fig.png')} style={styles.image}/>
           <H3>Schedule</H3>
+          <p>All events will take place at <a target="_blank" href="https://www.google.com/maps/place/4600+Mountain+Home+Ranch+Rd,+Calistoga,+CA+94515/@38.5689432,-122.64238,17z/data=!3m1!4b1!4m5!3m4!1s0x80844170be1f1fe9:0x6507900aa20abd50!8m2!3d38.568939!4d-122.640186">Triple S Ranch</a> in Calistoga, CA</p>
         </TextAlign>
         <Layout>
           <LayoutItem size="4">
