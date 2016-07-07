@@ -37,7 +37,7 @@ class YourInfoForm extends Component {
   render() {
     const {saveAddress, isSaving, hasFailure} = this.props;
     const error = hasFailure ? <p style={styles.error}>{hasFailure}. Please try again. If you're still having
-      issues, email us at <a href="mailto:rachplusmatt@gmail.com">rachplusmatt@gmail.com</a>.</p> : null;
+      issues, email us at <a href="mailto:rachplusmatt@randmwedding.com">rachplusmatt@randmwedding.com</a>.</p> : null;
 
     return (
       <div>
@@ -99,7 +99,7 @@ function Thanks() {
       <p>
         We've got your address! Expect a formal invitation in the next few
         months. If you have any questions, don't hesitate to reach out to us
-        at <a href="mailto:rachplusmatt@gmail.com">rachplusmatt@gmail.com</a>.
+        at <a href="mailto:rachplusmatt@randmwedding.com">rachplusmatt@randmwedding.com</a>.
       </p>
     </div>
   );
