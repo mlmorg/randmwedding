@@ -1,6 +1,10 @@
 import xhr from 'xhr';
+import window from 'global/window';
 
 export function changeNavState(activeRoute, affix, height) {
+  if (activeRoute) {
+    sendEvent('nav', 'change', activeRoute);
+  }
   return {
     type: 'CHANGE_NAV_STATE',
     activeRoute,
@@ -34,6 +38,7 @@ export function saveAddress(payload) {
 }
 
 export function saveAddressStart(payload) {
+  sendEvent('address', 'submit');
   return {
     type: 'SAVE_ADDRESS_START',
     payload
@@ -41,14 +46,22 @@ export function saveAddressStart(payload) {
 }
 
 export function saveAddressSuccess() {
+  sendEvent('address', 'success');
   return {
     type: 'SAVE_ADDRESS_SUCCESS'
   };
 }
 
 export function saveAddressFailure(message) {
+  sendEvent('address', 'failure', message);
   return {
     type: 'SAVE_ADDRESS_FAILURE',
     message
   };
+}
+
+function sendEvent(category, action, label) {
+  if (window.ga) {
+    window.ga('send', 'event', category, action, label);
+  }
 }
