@@ -4,12 +4,13 @@ import assetUrl from '../../lib/asset-url';
 
 import {TextAlign} from '../../lib/react-layout';
 import {H5} from './typography';
+import Logo from './logo';
 
 export default function Footer() {
   return (
     <div style={styles.wrapper}>
       <TextAlign center>
-        <img src={assetUrl('logo.png')} style={styles.image}/>
+        <Logo style={styles.logo}/>
         <div style={styles.subtitleWrapper}>
           <H5 style={styles.subtitle}>See you in May!</H5>
           <hr style={styles.hr}/>
@@ -24,7 +25,7 @@ const styles = {
     padding: '15px 0',
     marginTop: '-60px'
   },
-  image: {
+  logo: {
     width: '150px',
     height: '109px'
   },

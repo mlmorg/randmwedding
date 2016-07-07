@@ -36,7 +36,7 @@ const styles = {
     ...shared.yonder,
     fontSize: '75px',
     lineHeight: '0.8',
-    margin: '0px',
+    margin: '0px 0px 30px 0px',
 
     '@media(max-width: 750px)': {
       fontSize: '45px'

@@ -14,7 +14,7 @@ export default function Hero() {
       <div style={styles.heading}>
         <Logo secondary style={styles.logo}/>
         <div style={styles.title}>
-          <H1>Rac<span style={styles.upper}>h</span>el & Matt</H1>
+          <H1 style={styles.titleText}>Rac<span style={styles.upper}>h</span>el & Matt</H1>
           <div style={styles.titleLineLeft}/>
           <div style={styles.titleLineCenter}/>
           <div style={styles.titleLineRight}/>
@@ -70,6 +70,9 @@ const styles = {
       width: '30px',
       height: '17px'
     }
+  },
+  titleText: {
+    margin: '0px'
   },
   title: {
     ...shared.titles,
