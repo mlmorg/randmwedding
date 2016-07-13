@@ -18,8 +18,8 @@ const Layout = ({children}) => (
     />
     <NormalizeCss/>
     <GlobalStyles/>
-    {children}
     <script src={assetUrl('main.js')} async/>
+    {children}
   </div>
 );
 
