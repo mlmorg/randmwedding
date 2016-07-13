@@ -3,6 +3,7 @@ var browserify = require('browserify');
 var envify = require('envify');
 var extend = require('xtend');
 var insertGlobals = require('insert-module-globals');
+var uglifyify = require('uglifyify');
 var watchify = require('watchify');
 var write = require('write');
 
@@ -50,6 +51,11 @@ function bundler(options, cb) {
       startTime = Date.now();
       bundle();
     });
+  }
+
+  // Global uglify in prod
+  if (NODE_ENV === 'production' && options.browser) {
+    bundler.transform(uglifyify, {global: true});
   }
 
   startTime = Date.now();
