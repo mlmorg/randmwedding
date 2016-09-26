@@ -903,7 +903,7 @@
     },
     "cookie": {
       "version": "0.3.1",
-      "from": "cookie@0.3.1",
+      "from": "cookie@latest",
       "resolved": "https://registry.npmjs.org/cookie/-/cookie-0.3.1.tgz"
     },
     "cookie-signature": {

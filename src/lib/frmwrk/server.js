@@ -1,3 +1,4 @@
+import cookie from 'cookie';
 import fs from 'fs';
 import st from 'st';
 import path from 'path';
@@ -120,6 +121,17 @@ class Server {
 
     // Everything else is rendering the app
 
+    // Cookie handling
+    const cookies = cookie.parse(req.headers.cookie || '');
+
+    // seen-accommodations cookie
+    if (!cookies['seen-accommodations']) {
+      res.setHeader('Set-Cookie', cookie.serialize('seen-accommodations', 'true', {
+        maxAge: 60 * 60 * 24 * 360,
+        httpOnly: true
+      }));
+    }
+
     this.compression(req, res, () => {});
 
     const router = createRouter();
@@ -128,7 +140,8 @@ class Server {
         manifest: this.manifest,
         assetPrefix: ASSET_PREFIX,
         userAgent: req.headers['user-agent'],
-        isMobile: isMobile(req.headers['user-agent']).any
+        isMobile: isMobile(req.headers['user-agent']).any,
+        seenAccommodations: cookies['seen-accommodations']
       }
     });
 

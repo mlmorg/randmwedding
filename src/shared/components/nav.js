@@ -1,7 +1,9 @@
 /* @jsx createElement */
 import createElement from 'react-stylematic';
 
-export default function Nav({activeRoute, affix, height}) {
+export default function Nav({activeRoute, affix, height, seenAccommodations}) {
+  const newAccommodations = seenAccommodations ? null : <span style={styles.pill}>New!</span>;
+
   return (
     <div style={{height: height + 'px'}}>
       <div style={{
@@ -12,7 +14,7 @@ export default function Nav({activeRoute, affix, height}) {
           <Link href="#your-info" {...{active: activeRoute === 'your-info'}}>Your Info</Link>
           <Link href="#our-story" {...{active: activeRoute === 'our-story'}}>Our Story</Link>
           <Link href="#schedule" {...{active: activeRoute === 'schedule'}}>Schedule</Link>
-          <Link href="#travel-info" {...{active: activeRoute === 'travel-info'}}>Travel Info</Link>
+          <Link href="#accommodations" {...{active: activeRoute === 'accommodations'}}>Accommodations{newAccommodations}</Link>
           <Link href="#faq-and-details" {...{active: activeRoute === 'faq-and-details'}}>FAQ &amp; Details</Link>
         </ul>
       </div>
@@ -48,9 +50,10 @@ const styles = {
     padding: '0px'
   },
   item: {
-    display: 'inline'
+    display: 'inline',
   },
   link: {
+    position: 'relative',
     display: 'inline-block',
     padding: '25px',
     textTransform: 'uppercase',
@@ -76,6 +79,23 @@ const styles = {
 
     ':hover': {
       color: '#fff'
+    }
+  },
+  pill: {
+    display: 'block',
+    position: 'absolute',
+    top: '10px',
+    right: '15px',
+    padding: '4px 2px 2px 3px',
+    backgroundColor: '#C74F41',
+    color: '#fff',
+    fontSize: '9px',
+    borderRadius: '2px',
+    lineHeight: '1',
+
+    '@media(max-width: 750px)': {
+      top: '0',
+      right: '0'
     }
   }
 };

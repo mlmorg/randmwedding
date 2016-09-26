@@ -41,11 +41,36 @@ function LeftColumn() {
       <p>
         The average high in Calistoga in May is 78, and low is around 46. In other words, warm in the afternoon, chilly in the evening. We'll be outside when it's warm and inside when it's chilly - but be prepared for a temperature change! <a target="_blank" href="https://weather.com/weather/today/l/USCA0156:1:US">View current weather</a>.
       </p>
+
+      <H4>Gifts</H4>
+      <p>
+        Your presence is your present. We'd prefer no gifts, but if you insist <a target="_blank" href="https://www.zola.com/registry/randmwedding">here are some options</a>, including donating to our favorite nonprofits.
+      </p>
     </TextAlign>
   );
 }
 
 function CenterColumn() {
+  return (
+    <TextAlign center>
+      <H4>Travel</H4>
+      <p>
+        Shuttles will be provided to and from Calistoga
+      </p>
+      <p>
+        If you plan to drive, <a target="_blank" href="https://www.google.com/maps/place/4600+Mountain+Home+Ranch+Rd,+Calistoga,+CA+94515/@38.5689432,-122.64238,17z/data=!3m1!4b1!4m5!3m4!1s0x80844170be1f1fe9:0x6507900aa20abd50!8m2!3d38.568939!4d-122.640186">here is a map to Triple S Ranch</a>. There is free parking on-site but please be aware that cell phone reception is poor (so plan in advance) and it is a dark, bumpy road at night.
+      </p>
+      <p>
+        For flights, you have 3 major airport options: 1 hour 45 Minutes drive each from <a target="_blank" href="https://www.google.com/maps/dir/SFO,+San+Francisco,+CA/4600+Mountain+Home+Ranch+Rd,+Calistoga,+CA+94515/@38.0972799,-123.0486721,9z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x808f778c55555555:0xa4f25c571acded3f!2m2!1d-122.3789554!2d37.6213129!1m5!1m1!1s0x80844170be1f1fe9:0x6507900aa20abd50!2m2!1d-122.640186!2d38.568939">San Francisco International Airport (SFO)</a>, <a target="_blank" href="https://www.google.com/maps/dir/Oakland+International+Airport,+1+Airport+Drive,+Oakland,+CA+94621/4600+Mountain+Home+Ranch+Rd,+Calistoga,+CA+94515/@38.1461643,-122.9648881,9z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x808f845402c0a641:0xb0630c0f03017460!2m2!1d-122.2197428!2d37.7125689!1m5!1m1!1s0x80844170be1f1fe9:0x6507900aa20abd50!2m2!1d-122.640186!2d38.568939">Oakland Airport (OAK)</a> and <a target="_blank" href="https://www.google.com/maps/dir/Sacramento+Metropolitan+Airport,+Airport+Boulevard,+Sacramento,+CA/4600+Mountain+Home+Ranch+Rd,+Calistoga,+CA+94515/@38.4505363,-122.6755153,9z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x809b2b73ce6a70ad:0xa460901228ef4232!2m2!1d-121.5900648!2d38.6950854!1m5!1m1!1s0x80844170be1f1fe9:0x6507900aa20abd50!2m2!1d-122.640186!2d38.568939">Sacramento Airport (SMF)</a>. There are also flights from <a href="http://sonomacountyairport.org/">Sonoma County Airport</a> - a 30 minute drive to Calistoga - from LA, San Diego, Portland, Seattle and Orange County.
+      </p>
+      <p>
+        Memorial Day Weekend is a very popular time for travel, so please book your flights and car rentals now!
+      </p>
+    </TextAlign>
+  );
+}
+
+function RightColumn() {
   return (
     <TextAlign center>
       <H4>Music</H4>
@@ -55,21 +80,10 @@ function CenterColumn() {
 
       <H4>Food</H4>
       <p>
-        Check back closer to the wedding for details. Fruits, vegetables, beer and wine will be prominent.
-      </p>
-    </TextAlign>
-  );
-}
-
-function RightColumn() {
-  return (
-    <TextAlign center>
-      <H4>Gifts</H4>
-      <p>
-        Your presence is your present. We'd prefer no gifts, but if you insist <a target="_blank" href="https://www.zola.com/registry/randmwedding">here are some options</a>, including donating to our favorite nonprofits.
+        Food for all of the wedding events will be provided by <a target="_blank" href="http://www.amieedmarisevents.com/">Amiee D'Maris Events</a>, which also operates <a target="_blank" href="http://www.amieedmarisevents.com/food-love">ADE Farms</a> at Triple S Ranch. Friday evening's food will include handmade pizzas from the wood-fired oven onsite, Saturday will feature a range of fresh vegetables and fruits, and Sunday will feature a Texas-style breakfast taco brunch!
       </p>
 
-      <H4>Things To Do</H4>
+      <H4>Activities</H4>
       <ul style={styles.list}>
         <li>
           Visit the <a target="_blank" href="http://www.petrifiedforest.org/">petrified forest</a>, or <a target="_blank" href="http://www.parks.ca.gov/?page_id=477">go for a hike</a>

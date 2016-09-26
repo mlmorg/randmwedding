@@ -17,7 +17,7 @@ class NavContainer extends React.Component {
       'your-info',
       'our-story',
       'schedule',
-      'travel-info',
+      'accommodations',
       'faq-and-details'
     ];
     this.onScrollFn = debounce(this.onScrollChange.bind(this), 10);
@@ -136,7 +136,10 @@ function easeInOutQuad(currentTime, start, change, duration) {
 }
 
 function mapStateToProps(state) {
-  return state.nav;
+  return {
+    ...state.nav,
+    seenAccommodations: state.server.seenAccommodations
+  };
 }
 
 function mapDispatchToProps(dispatch) {
