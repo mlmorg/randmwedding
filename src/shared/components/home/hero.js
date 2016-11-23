@@ -21,7 +21,7 @@ export default function Hero() {
         </div>
         <div style={styles.subtitle}>
           <H2>
-            Saturday, May 27, 2017<br />
+            Saturday May 27<sup style={styles.superscript}>th</sup> 2017<br />
             Under The Walnut tree
           </H2>
         </div>
@@ -119,6 +119,14 @@ const styles = {
     '@media(max-width: 750px)': {
       width: '207px',
       marginBottom: '15px'
+    }
+  },
+  superscript: {
+    top: '-9px',
+    fontSize: '60%',
+
+    '@media(max-width: 750px)': {
+      top: '-5px'
     }
   },
   upper: {
