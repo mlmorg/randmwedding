@@ -3,7 +3,7 @@ import {Component} from 'react';
 import createElement from 'react-stylematic';
 import assetUrl from '../../../lib/asset-url';
 
-import {Form, FormItem, Text, Submit} from '../forms';
+import {Form, FormItem, Text, TextArea, Choice, Number, Submit} from '../forms';
 import {Layout, LayoutItem, TextAlign, Padded} from '../../../lib/react-layout';
 import {H3} from '../typography';
 
@@ -28,14 +28,21 @@ class RSVPForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      numAdults: '',
+      numChildren: '',
       name: '',
-      street: '',
-      city: ''
+      friday: '',
+      saturday: '',
+      sunday: '',
+      diet: '',
+      wordsRachel: '',
+      wordsMatt: '',
+      wordsAdvice: ''
     };
   }
 
   render() {
-    const {saveAddress, isSaving, hasFailure} = this.props;
+    const {saveForm, isSaving, hasFailure} = this.props;
     const error = hasFailure ? <p style={styles.error}>{hasFailure}. Please try again. If you're still having
       issues, email us at <a href="mailto:rachplusmatt@randmwedding.com">rachplusmatt@randmwedding.com</a>.</p> : null;
 
@@ -47,14 +54,32 @@ class RSVPForm extends Component {
         </TextAlign>
         <p>
           We're excited for you to join us in Calistoga, CA for our wedding!
-          Please RSVP by filling out the form below by March 31<sup styles={styles.superscript}>st</sup> 2017.
+          Please RSVP by filling out the form below by <strong>March 31<sup styles={styles.superscript}>st</sup> 2017</strong>.
           We hope to see you in May!
         </p>
         <Form onSubmit={(evt) => {
           evt.preventDefault();
-          saveAddress(this.state);
+          saveForm(this.state);
         }}>
           {error}
+          <Layout>
+            <LayoutItem size="6">
+              <FormItem>
+                <Number
+                  name="numAdults"
+                  label="# of Adults"
+                />
+              </FormItem>
+            </LayoutItem>
+            <LayoutItem size="6">
+              <FormItem>
+                <Number
+                  name="numChildren"
+                  label="# of Children"
+                />
+              </FormItem>
+            </LayoutItem>
+          </Layout>
           <FormItem>
             <Text
               name="name"
@@ -64,22 +89,69 @@ class RSVPForm extends Component {
               onChange={(evt) => this.setState({name: evt.target.value})}
             />
           </FormItem>
+
+          <hr style={styles.hr}/>
+
           <FormItem>
-            <Text
-              name="street"
-              label="Street Address"
-              placeholder="1234 Wedding Road"
-              value={this.state.street}
-              onChange={(evt) => this.setState({street: evt.target.value})}
+            <Choice
+              title="Will you attend the Friday Evening Pizza Party?"
+              name="friday"
+              values={{
+                y: 'Yes, can\'t wait!',
+                n: 'No, but thanks for the invite!'}}
+            />
+          </FormItem>
+          <FormItem>
+            <Choice
+              title="Will you attend the Ceremony & Reception?"
+              name="saturday"
+              values={{
+                y: 'Yes, I wouldn\'t miss it!',
+                n: 'No, but sending love your way!'}}
+            />
+          </FormItem>
+          <FormItem>
+            <Choice
+              title="Will you attend the Sunday Texas Breakfast Taco Brunch / Pool Party?"
+              name="sunday"
+              values={{
+                y: 'Yes, let\'s party!',
+                n: 'No, but I\'ll be there in spirit!'}}
             />
           </FormItem>
           <FormItem>
             <Text
-              name="city"
-              label="City & Country"
-              placeholder="Calistoga, CA 91101 USA"
-              value={this.state.city}
-              onChange={(evt) => this.setState({city: evt.target.value})}
+              name="diet"
+              label="Dietary Restrictions or Allergies?"
+              subLabel="(Optional)"
+              placeholder="None!"
+            />
+          </FormItem>
+
+          <hr style={styles.hr}/>
+
+          <FormItem>
+            <TextArea
+              name="wordsRachel"
+              label="Words to Describe Rachel"
+              subLabel="(Optional, May be used in ceremony or toasts)"
+              placeholder="..."
+            />
+          </FormItem>
+          <FormItem>
+            <TextArea
+              name="wordsMatt"
+              label="Words to Describe Matt"
+              subLabel="(Optional, May be used in ceremony or toasts)"
+              placeholder="..."
+            />
+          </FormItem>
+          <FormItem>
+            <TextArea
+              name="wordsAdvice"
+              label="Marriage Advice, Wit or Wisdom"
+              subLabel="(Optional, May be used in ceremony or toasts)"
+              placeholder="..."
             />
           </FormItem>
           <Submit value={isSaving ? 'Saving...' : 'Save'}/>
@@ -97,8 +169,7 @@ function Thanks() {
         <H3>Thanks!</H3>
       </TextAlign>
       <p>
-        We've got your address! Expect a formal invitation in the next few
-        months. If you have any questions, don't hesitate to reach out to us
+        We've got your information! If you have any questions, don't hesitate to reach out to us
         at <a href="mailto:rachplusmatt@randmwedding.com">rachplusmatt@randmwedding.com</a>.
       </p>
     </div>
@@ -131,5 +202,12 @@ const styles = {
   },
   superscript: {
     fontSize: '60%'
+  },
+  hr: {
+    margin: '0',
+    padding: '0',
+    marginBottom: '20px',
+    border: 'none',
+    borderBottom: '1px solid #ddd',
   }
 };
