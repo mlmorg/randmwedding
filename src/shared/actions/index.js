@@ -13,6 +13,13 @@ export function changeNavState(activeRoute, affix, height) {
   };
 }
 
+export function showForm() {
+  sendEvent('form', 'show');
+  return {
+    type: 'SHOW_FORM'
+  };
+}
+
 export function saveForm(payload) {
   return function (dispatch) {
     dispatch(saveFormStart(payload));

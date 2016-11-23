@@ -73,6 +73,10 @@ export function Radio({label, ...props}) {
   );
 }
 
+export function Button({...props}) {
+  return <button style={styles.button} {...props}>{props.children}</button>
+}
+
 export function Submit({...props}) {
   return <input type="submit" style={styles.submit} {...props}/>;
 }
@@ -103,6 +107,24 @@ const shared = {
     fontWeight: 'bold',
     color: '#777',
     letterSpacing: '2px'
+  },
+  button: {
+    display: 'inline-block',
+    fontSize: '18px',
+    padding: '0px 14px',
+    lineHeight: '2.5',
+    border: '2px solid #A4C89A',
+    background: 'none',
+    cursor: 'pointer',
+    textTransform: 'uppercase',
+    fontWeight: 'bold',
+    color: '#777',
+    letterSpacing: '2px',
+
+    ':hover': {
+      backgroundColor: '#A4C89A',
+      color: '#fff'
+    }
   }
 };
 
@@ -144,23 +166,14 @@ const styles = {
     ...shared.inputText,
     width: '100%'
   },
+  button: {
+    ...shared.button
+  },
   submit: {
     ...shared.input,
-    display: 'inline-block',
+    ...shared.button,
     fontSize: '12px',
     padding: '0px 10px',
     lineHeight: '2.5',
-    border: '2px solid #A4C89A',
-    background: 'none',
-    cursor: 'pointer',
-    textTransform: 'uppercase',
-    fontWeight: 'bold',
-    color: '#777',
-    letterSpacing: '2px',
-
-    ':hover': {
-      backgroundColor: '#A4C89A',
-      color: '#fff'
-    }
   }
 };

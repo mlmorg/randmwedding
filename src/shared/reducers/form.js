@@ -1,10 +1,15 @@
 const initialState = {
   isSaving: false,
   hasFailure: false,
-  didSucceed: false
+  didSucceed: false,
+  shouldShowForm: false
 };
 
 export default function form(state = initialState, action) {
+  if (action.type === 'SHOW_FORM') {
+    return {...state, shouldShowForm: true};
+  }
+
   if (action.type === 'SAVE_FORM_START') {
     return {...state, isSaving: true, hasFailure: false, didSucceed: false};
   }
