@@ -10,7 +10,6 @@ export default class API {
   }
 
   saveForm(req, body, cb) {
-    console.log(body);
     if (
       !body.numAdults ||
       !body.name ||

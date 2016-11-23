@@ -22,6 +22,7 @@ export function saveForm(payload) {
       json: payload
     }, function (err, res, body) {
       // set hash
+      window.location.hash = 'saving';
       window.location.hash = 'rsvp';
 
       if (err) {
