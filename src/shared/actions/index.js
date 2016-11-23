@@ -22,7 +22,7 @@ export function saveAddress(payload) {
       json: payload
     }, function (err, res, body) {
       // set hash
-      window.location.hash = 'your-info';
+      window.location.hash = 'rsvp';
 
       if (err) {
         body = {error: 'Failed making request'};

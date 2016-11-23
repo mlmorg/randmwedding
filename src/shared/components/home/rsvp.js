@@ -7,10 +7,10 @@ import {Form, FormItem, Text, Submit} from '../forms';
 import {Layout, LayoutItem, TextAlign, Padded} from '../../../lib/react-layout';
 import {H3} from '../typography';
 
-export default function YourInfo({didSucceed, ...props}) {
-  const main = didSucceed ? <Thanks/> : <YourInfoForm {...props}/>
+export default function RSVP({didSucceed, ...props}) {
+  const main = didSucceed ? <Thanks/> : <RSVPForm {...props}/>
   return (
-    <Padded id="section-your-info" style={styles.wrapper}>
+    <Padded id="section-rsvp" style={styles.wrapper}>
       <Layout center>
         <LayoutItem max="600px">
           <div style={styles.box}>
@@ -24,7 +24,7 @@ export default function YourInfo({didSucceed, ...props}) {
   );
 }
 
-class YourInfoForm extends Component {
+class RSVPForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -43,12 +43,12 @@ class YourInfoForm extends Component {
       <div>
         <TextAlign center>
           <img src={assetUrl('avocado.png')} style={styles.image} />
-          <H3>Your Info</H3>
+          <H3>RSVP</H3>
         </TextAlign>
         <p>
           We're excited for you to join us in Calistoga, CA for our wedding!
-          Please save your address in this form so that we can send you
-          a formal invitation. We hope to see you in May!
+          Please RSVP by filling out the form below by March 31<sup styles={styles.superscript}>st</sup> 2017.
+          We hope to see you in May!
         </p>
         <Form onSubmit={(evt) => {
           evt.preventDefault();
@@ -128,5 +128,8 @@ const styles = {
     color: '#fff',
     fontSize: '16px',
     lineHeight: '1.2'
+  },
+  superscript: {
+    fontSize: '60%'
   }
 };

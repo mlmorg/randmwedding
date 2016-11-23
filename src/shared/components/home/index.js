@@ -7,14 +7,14 @@ import NavContainer from '../../containers/nav';
 import OurStory from './our-story';
 import Schedule from './schedule';
 import Accommodations from './accommodations';
-import YourInfo from '../../containers/your-info';
+import RSVP from '../../containers/rsvp';
 
 export default function Home() {
   return (
     <div>
       <NavContainer/>
       <Hero/>
-      <YourInfo/>
+      <RSVP/>
       <OurStory/>
       <Schedule/>
       <Accommodations/>

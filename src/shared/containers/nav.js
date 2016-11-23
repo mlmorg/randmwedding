@@ -14,7 +14,7 @@ class NavContainer extends React.Component {
   constructor() {
     super();
     this.routes = [
-      'your-info',
+      'rsvp',
       'our-story',
       'schedule',
       'accommodations',

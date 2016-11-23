@@ -11,7 +11,7 @@ export default function Nav({activeRoute, affix, height, seenAccommodations}) {
         ...(affix && styles.wrapperFixed)
       }}>
         <ul style={styles.list}>
-          <Link href="#your-info" {...{active: activeRoute === 'your-info'}}>Your Info</Link>
+          <Link href="#rsvp" {...{active: activeRoute === 'rsvp'}}>RSVP</Link>
           <Link href="#our-story" {...{active: activeRoute === 'our-story'}}>Our Story</Link>
           <Link href="#schedule" {...{active: activeRoute === 'schedule'}}>Schedule</Link>
           <Link href="#accommodations" {...{active: activeRoute === 'accommodations'}}>Accommodations{newAccommodations}</Link>

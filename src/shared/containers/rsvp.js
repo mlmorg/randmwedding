@@ -4,7 +4,7 @@ import React from 'react';
 
 import {saveAddress} from '../actions';
 
-import YourInfo from '../components/home/your-info';
+import RSVP from '../components/home/rsvp';
 
 function mapStateToProps(state) {
   return state.address;
@@ -19,4 +19,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(YourInfo);
+)(RSVP);
