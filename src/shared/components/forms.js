@@ -41,10 +41,19 @@ export function Number({label, ...props}) {
   );
 }
 
-export function Choice({title, name, values}) {
+export function Choice({title, name, values, checked, onChange}) {
   const radios = Object.keys(values).map(function (value, i) {
     const label = values[value];
-    return <Radio key={i} name={name} label={label} value={value}/>
+    return (
+      <Radio
+        key={i}
+        name={name}
+        label={label}
+        value={value}
+        checked={checked === value}
+        onChange={onChange}
+      />
+    );
   });
   return (
     <div>

@@ -68,6 +68,8 @@ class RSVPForm extends Component {
                 <Number
                   name="numAdults"
                   label="# of Adults"
+                  value={this.state.numAdults}
+                  onChange={(evt) => this.setState({numAdults: evt.target.value})}
                 />
               </FormItem>
             </LayoutItem>
@@ -76,6 +78,8 @@ class RSVPForm extends Component {
                 <Number
                   name="numChildren"
                   label="# of Children"
+                  value={this.state.numChildren}
+                  onChange={(evt) => this.setState({numChildren: evt.target.value})}
                 />
               </FormItem>
             </LayoutItem>
@@ -99,6 +103,8 @@ class RSVPForm extends Component {
               values={{
                 y: 'Yes, can\'t wait!',
                 n: 'No, but thanks for the invite!'}}
+              checked={this.state.friday}
+              onChange={(evt) => this.setState({friday: evt.target.value})}
             />
           </FormItem>
           <FormItem>
@@ -108,6 +114,8 @@ class RSVPForm extends Component {
               values={{
                 y: 'Yes, I wouldn\'t miss it!',
                 n: 'No, but sending love your way!'}}
+              checked={this.state.saturday}
+              onChange={(evt) => this.setState({saturday: evt.target.value})}
             />
           </FormItem>
           <FormItem>
@@ -117,6 +125,8 @@ class RSVPForm extends Component {
               values={{
                 y: 'Yes, let\'s party!',
                 n: 'No, but I\'ll be there in spirit!'}}
+              checked={this.state.sunday}
+              onChange={(evt) => this.setState({sunday: evt.target.value})}
             />
           </FormItem>
           <FormItem>
@@ -125,6 +135,8 @@ class RSVPForm extends Component {
               label="Dietary Restrictions or Allergies?"
               subLabel="(Optional)"
               placeholder="None!"
+              value={this.state.diet}
+              onChange={(evt) => this.setState({diet: evt.target.value})}
             />
           </FormItem>
 
@@ -136,6 +148,8 @@ class RSVPForm extends Component {
               label="Words to Describe Rachel"
               subLabel="(Optional, May be used in ceremony or toasts)"
               placeholder="..."
+              value={this.state.wordsRachel}
+              onChange={(evt) => this.setState({wordsRachel: evt.target.value})}
             />
           </FormItem>
           <FormItem>
@@ -144,6 +158,8 @@ class RSVPForm extends Component {
               label="Words to Describe Matt"
               subLabel="(Optional, May be used in ceremony or toasts)"
               placeholder="..."
+              value={this.state.wordsMatt}
+              onChange={(evt) => this.setState({wordsMatt: evt.target.value})}
             />
           </FormItem>
           <FormItem>
@@ -152,6 +168,8 @@ class RSVPForm extends Component {
               label="Marriage Advice, Wit or Wisdom"
               subLabel="(Optional, May be used in ceremony or toasts)"
               placeholder="..."
+              value={this.state.wordsAdvice}
+              onChange={(evt) => this.setState({wordsAdvice: evt.target.value})}
             />
           </FormItem>
           <Submit value={isSaving ? 'Saving...' : 'Save'}/>

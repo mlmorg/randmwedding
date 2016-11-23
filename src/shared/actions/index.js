@@ -13,11 +13,11 @@ export function changeNavState(activeRoute, affix, height) {
   };
 }
 
-export function saveAddress(payload) {
+export function saveForm(payload) {
   return function (dispatch) {
-    dispatch(saveAddressStart(payload));
+    dispatch(saveFormStart(payload));
     xhr({
-      url: '/api/saveAddress',
+      url: '/api/saveForm',
       method: 'POST',
       json: payload
     }, function (err, res, body) {
@@ -29,33 +29,33 @@ export function saveAddress(payload) {
       }
 
       if (body.error) {
-        return dispatch(saveAddressFailure(body.error));
+        return dispatch(saveFormFailure(body.error));
       }
 
-      dispatch(saveAddressSuccess());
+      dispatch(saveFormSuccess());
     });
   }
 }
 
-export function saveAddressStart(payload) {
-  sendEvent('address', 'submit');
+export function saveFormStart(payload) {
+  sendEvent('form', 'submit');
   return {
-    type: 'SAVE_ADDRESS_START',
+    type: 'SAVE_FORM_START',
     payload
   };
 }
 
-export function saveAddressSuccess() {
-  sendEvent('address', 'success');
+export function saveFormSuccess() {
+  sendEvent('form', 'success');
   return {
-    type: 'SAVE_ADDRESS_SUCCESS'
+    type: 'SAVE_FORM_SUCCESS'
   };
 }
 
-export function saveAddressFailure(message) {
-  sendEvent('address', 'failure', message);
+export function saveFormFailure(message) {
+  sendEvent('form', 'failure', message);
   return {
-    type: 'SAVE_ADDRESS_FAILURE',
+    type: 'SAVE_FORM_FAILURE',
     message
   };
 }

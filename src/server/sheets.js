@@ -18,7 +18,7 @@ export default class Sheets {
     this.options = {
       auth: this.jwt,
       spreadsheetId: SPREADSHEET,
-      range: 'addresses!A1:C'
+      range: 'rsvp!A1:J'
     };
   }
 
@@ -58,10 +58,10 @@ export default class Sheets {
       const nextRow = res.values.length + 1;
       const options = {
         ...this.options,
-        range: `addresses!A${nextRow}:C${nextRow}`,
+        range: `rsvp!A${nextRow}:J${nextRow}`,
         valueInputOption: 'RAW',
         resource: {
-          range: `addresses!A${nextRow}:C${nextRow}`,
+          range: `rsvp!A${nextRow}:J${nextRow}`,
           majorDimension: 'ROWS',
           values: [data]
         }

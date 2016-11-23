@@ -9,23 +9,37 @@ export default class API {
     cb(null);
   }
 
-  saveAddress(req, body, cb) {
-    if (!body.name || !body.street || !body.city) {
-      let err = new Error('All fields must be filled')
+  saveForm(req, body, cb) {
+    console.log(body);
+    if (
+      !body.numAdults ||
+      !body.name ||
+      !body.friday ||
+      !body.saturday ||
+      !body.sunday
+    ) {
+      let err = new Error('You must enter in the # of adults, your names, and what parts of the wedding you will attend');
       err.statusCode = 400;
       return cb(err);
     }
 
     const data = [
+      body.numAdults,
+      body.numChildren,
       body.name,
-      body.street,
-      body.city
+      body.friday,
+      body.saturday,
+      body.sunday,
+      body.diet,
+      body.wordsRachel,
+      body.wordsMatt,
+      body.wordsAdvice
     ];
     this.sheets.addRow(data, (err) => {
       if (err) {
         return cb(err);
       }
-      cb(null, {success: 'Address saved!'});
+      cb(null, {success: 'Information saved!'});
     });
   }
 }
