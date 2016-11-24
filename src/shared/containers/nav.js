@@ -138,7 +138,8 @@ function easeInOutQuad(currentTime, start, change, duration) {
 function mapStateToProps(state) {
   return {
     ...state.nav,
-    seenAccommodations: state.server.seenAccommodations
+    seenAccommodations: state.server.seenAccommodations,
+    seenRSVP: state.server.seenRSVP
   };
 }
 

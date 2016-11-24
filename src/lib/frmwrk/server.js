@@ -132,6 +132,14 @@ class Server {
       }));
     }
 
+    // seen-rsvp cookie
+    if (!cookies['seen-rsvp']) {
+      res.setHeader('Set-Cookie', cookie.serialize('seen-rsvp', 'true', {
+        maxAge: 60 * 60 * 24 * 360,
+        httpOnly: true
+      }));
+    }
+
     this.compression(req, res, () => {});
 
     const router = createRouter();
@@ -141,7 +149,8 @@ class Server {
         assetPrefix: ASSET_PREFIX,
         userAgent: req.headers['user-agent'],
         isMobile: isMobile(req.headers['user-agent']).any,
-        seenAccommodations: cookies['seen-accommodations']
+        seenAccommodations: cookies['seen-accommodations'],
+        seenRSVP: cookies['seen-rsvp']
       }
     });
 
