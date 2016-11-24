@@ -34,7 +34,7 @@ function RSVPFormWrapper({shouldShowForm, ...props}) {
       </TextAlign>
       <p>
         We're excited for you to join us in Calistoga, CA for our wedding!
-        Please RSVP by filling out the form below by <strong>March 31<sup styles={styles.superscript}>st</sup> 2017</strong>.
+        Please RSVP by filling out the form below by <strong>March 31<sup style={styles.superscript}>st</sup> 2017</strong>.
         We hope to see you in May!
       </p>
       {main}
