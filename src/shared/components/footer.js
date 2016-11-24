@@ -23,11 +23,11 @@ export default function Footer() {
 const styles = {
   wrapper: {
     padding: '15px 0',
-    marginTop: '-60px'
+    marginTop: '-80px'
   },
   logo: {
     width: '150px',
-    height: '109px'
+    height: '150px'
   },
   subtitleWrapper: {
     position: 'relative',
