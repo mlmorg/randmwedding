@@ -49,7 +49,10 @@ function Saturday() {
       <H4>Saturday, May 27</H4>
 
       <H6>9:00am</H6>
-      <p>Morning Yoga by the pool</p>
+      <p>Morning Yoga by the Pool by <a href="https://www.instagram.com/texanyogini/">@texanyogini</a></p>
+
+      <H6>3:15pm</H6>
+      <p>First Shuttle Pickup in Calistoga</p>
 
       <H6>4:30pm</H6>
       <p>Ceremony under the Walnut Tree</p>
@@ -58,7 +61,7 @@ function Saturday() {
       <p>Cocktail Reception on the Patio</p>
 
       <H6>6:15pm</H6>
-      <p>Dinner at the Redwood slab tables</p>
+      <p>Dinner at the Redwood Slab Tables</p>
 
       <H6>7:15pm</H6>
       <p>Dancing in the Barn</p>
@@ -66,8 +69,8 @@ function Saturday() {
       <H6>10:00pm</H6>
       <p>Silent Disco!</p>
 
-      <H6>12:00am</H6>
-      <p>Good Night</p>
+      <H6>11:15pm</H6>
+      <p>Good Night / Last Shuttle</p>
     </TextAlign>
   );
 }
@@ -78,7 +81,7 @@ function Sunday() {
       <H4>Sunday, May 28</H4>
 
       <H6>10:00am</H6>
-      <p>Brunch, Mimosas, Micheladas & Pool Party (all are welcome, pool will be open)</p>
+      <p>Brunch, Mimosas, & Pool Party (all are welcome, pool will be open)</p>
 
       <H6>1:00pm</H6>
       <p>Love you, but you gotta go!</p>
