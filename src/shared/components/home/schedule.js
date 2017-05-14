@@ -52,7 +52,7 @@ function Saturday() {
       <p>Morning Yoga by the Pool by <a href="https://www.instagram.com/texanyogini/">@texanyogini</a></p>
 
       <H6>3:15pm</H6>
-      <p>First Shuttle Pickup in Calistoga</p>
+      <p>First Shuttle Pickup in Calistoga at <a href="https://goo.gl/maps/agPkPb3LQr42">Palisades Restaurant Parking Lot</a></p>
 
       <H6>4:30pm</H6>
       <p>Ceremony under the Walnut Tree</p>
