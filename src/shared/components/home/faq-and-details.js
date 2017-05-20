@@ -36,12 +36,12 @@ function LeftColumn() {
       <p>
         <strong>On Friday:</strong> Casual - summer dresses, jeans or khakis are fine, sneakers are fine (there will be lawn games!).<br/>
         <strong>On Saturday:</strong> Semiformal / dressy casual /cocktail attire. Ties and heels are optional, but if you want to be fancy, go for it. Expect to be outside and walking around on gravel, stone, grass and wood.<br/>
-        <strong>On Sunday:</strong> Casual - the pool and the hot tub are open, you’re welcome to swim in them. Wear whatever you feel comfortable in.
+        <strong>On Sunday:</strong> Casual - the pool and the hot tub are open, you're welcome to swim in them. Wear whatever you feel comfortable in.
       </p>
 
       <H4>Weather</H4>
       <p>
-        It will likely be in the low 80s during the day and low 50s at night. We’ll be moving inside before it gets too chilly, but bring a jacket just in case. <a target="_blank" href="https://weather.com/weather/today/l/USCA0156:1:US">View current weather</a>.
+        It will likely be in the low 80s during the day and low 50s at night. We'll be moving inside before it gets too chilly, but bring a jacket just in case. <a target="_blank" href="https://weather.com/weather/today/l/USCA0156:1:US">View current weather</a>.
       </p>
 
       <H4>Gifts</H4>
