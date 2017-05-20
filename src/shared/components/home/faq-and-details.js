@@ -34,14 +34,14 @@ function LeftColumn() {
     <TextAlign center>
       <H4>Attire</H4>
       <p>
-        <strong>On Friday:</strong> Casual - summer dresses, jeans or khakis are fine, sneakers are fine. There will be pizza, beer, wine and lawn games.<br/>
-        <strong>On Saturday:</strong> Semiformal / dressy casual /cocktail attire. The wedding is on a ranch. Ties and heels are optional, but if you want to be fancy, go for it. Expect to be outside and walking around on gravel, stone, grass and wood.<br/>
-        <strong>On Sunday:</strong> Casual - the pool and the hot tub are open, you're welcome to swim in them. Wear whatever you feel comfortable in.
+        <strong>On Friday:</strong> Casual - summer dresses, jeans or khakis are fine, sneakers are fine (there will be lawn games!).<br/>
+        <strong>On Saturday:</strong> Semiformal / dressy casual /cocktail attire. Ties and heels are optional, but if you want to be fancy, go for it. Expect to be outside and walking around on gravel, stone, grass and wood.<br/>
+        <strong>On Sunday:</strong> Casual - the pool and the hot tub are open, you’re welcome to swim in them. Wear whatever you feel comfortable in.
       </p>
 
       <H4>Weather</H4>
       <p>
-        The average high in Calistoga in May is 78, and low is around 46. In other words, warm in the afternoon, chilly in the evening. We'll be outside when it's warm and inside when it's chilly - but be prepared for a temperature change! <a target="_blank" href="https://weather.com/weather/today/l/USCA0156:1:US">View current weather</a>.
+        It will likely be in the low 80s during the day and low 50s at night. We’ll be moving inside before it gets too chilly, but bring a jacket just in case. <a target="_blank" href="https://weather.com/weather/today/l/USCA0156:1:US">View current weather</a>.
       </p>
 
       <H4>Gifts</H4>
@@ -57,7 +57,7 @@ function CenterColumn() {
     <TextAlign center>
       <H4>Travel</H4>
       <p>
-        Shuttles will be provided to and from Calistoga. Please arrive no later than 3:10pm at the <a href="https://goo.gl/maps/agPkPb3LQr42">Palisades Restaurant Parking Lot</a> for the shuttle to the ranch. The last shuttles back to Calistoga will be 10:15pm and 11:15pm, though there will be earlier options for those that need it.
+        Shuttles will be provided to and from Calistoga on Saturday for the wedding ceremony and reception. Please arrive by 3:15pm at the <a href="https://goo.gl/maps/agPkPb3LQr42">Palisades Restaurant Parking Lot</a> for the shuttle to the ranch. The last shuttles back to Calistoga will be 10:15pm and 11:15pm, though there will be earlier options for those that need it.
       </p>
       <p>
         If you plan to drive, <a target="_blank" href="https://www.google.com/maps/place/4600+Mountain+Home+Ranch+Rd,+Calistoga,+CA+94515/@38.5689432,-122.64238,17z/data=!3m1!4b1!4m5!3m4!1s0x80844170be1f1fe9:0x6507900aa20abd50!8m2!3d38.568939!4d-122.640186">here is a map to Triple S Ranch</a>. There is free parking on-site but please park in the back lot <a href="http://www.triplesranchnapa.com/wp-content/uploads/2014/02/Triple-S-Ranch_Map_102216.jpg">(behind "TUV" on the map)</a>. Also, be aware that cell phone reception is poor (so plan in advance) and it is a dark, bumpy road at night.
